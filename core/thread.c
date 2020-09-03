@@ -24,6 +24,7 @@
 #include <picotls.h>
 #endif
 
+#include "board.h"
 #include "assert.h"
 #include "thread.h"
 #include "irq.h"
@@ -188,6 +189,7 @@ kernel_pid_t thread_create(char *stack, int stacksize, uint8_t priority,
                            int flags, thread_task_func_t function, void *arg,
                            const char *name)
 {
+    DEBUG("thread.c - thread_create - START: name=%s, stack=%p stacksize=%d\n", name, stack, stacksize);
     if (priority >= SCHED_PRIO_LEVELS) {
         return -EINVAL;
     }

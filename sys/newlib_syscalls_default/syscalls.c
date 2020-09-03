@@ -189,6 +189,7 @@ __attribute__((used)) void _exit(int n)
  */
 void *_sbrk_r(struct _reent *r, ptrdiff_t incr)
 {
+    ICODEBUG("syscalls.c - _sbrk_r - START")
     void *res = (void*)UINTPTR_MAX;
     unsigned int state = irq_disable();
 
@@ -208,6 +209,7 @@ void *_sbrk_r(struct _reent *r, ptrdiff_t incr)
     }
 
     irq_restore(state);
+    ICODEBUG("syscalls.c - _sbrk_r - END")
     return res;
 }
 
@@ -339,12 +341,15 @@ _ssize_t _read_r(struct _reent *r, int fd, void *dest, size_t count)
  */
 _ssize_t _write_r(struct _reent *r, int fd, const void *src, size_t count)
 {
+    //ICODEBUG("syscalls.c - VFS - _write_r - START")
     int res = vfs_write(fd, src, count);
     if (res < 0) {
         /* vfs returns negative error codes */
         r->_errno = -res;
+        //ICODEBUG("syscalls.c - _write_ - error")
         return -1;
     }
+    //ICODEBUG("syscalls.c - VFS - _write_r - END")
     return res;
 }
 
@@ -522,8 +527,10 @@ _ssize_t _read_r(struct _reent *r, int fd, void *buffer, size_t count)
  */
 _ssize_t _write_r(struct _reent *r, int fd, const void *data, size_t count)
 {
+    //ICODEBUG("syscalls.c - UART - _write_r - START")
     (void) r;
     (void) fd;
+    //ICODEBUG("syscalls.c - UART - _write_r - END")
     return stdio_write(data, count);
 }
 

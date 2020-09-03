@@ -79,7 +79,11 @@ void stdio_init(void)
 ssize_t stdio_read(void* buffer, size_t count)
 {
 #ifdef MODULE_STDIO_UART_RX
+#ifdef MODULE_STDIO_UART_RX_NOINT
+    return uart_read(STDIO_UART_DEV, buffer, count);
+#else
     return (ssize_t)isrpipe_read(&stdio_uart_isrpipe, buffer, count);
+#endif
 #else
     (void)buffer;
     (void)count;

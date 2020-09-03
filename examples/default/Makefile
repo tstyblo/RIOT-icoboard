@@ -25,14 +25,15 @@ RIOTBASE ?= $(CURDIR)/../..
 DEVELHELP ?= 1
 
 # Change this to 0 show compiler invocation lines by default:
-QUIET ?= 1
+QUIET ?= 0
 
 # Modules to include:
 USEMODULE += shell
 USEMODULE += shell_commands
 USEMODULE += ps
 # include and auto-initialize all available sensors
-USEMODULE += saul_default
+# USEMODULE += saul_default # TODO
+# USEMODULE += saul_gpio # TODO
 
 BOARD_PROVIDES_NETIF := acd52832 adafruit-clue airfy-beacon atmega256rfr2-xpro \
         arduino-nano-33-ble avr-rss2 b-l072z-lrwan1 cc2538dk dwm1001 fox \
