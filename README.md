@@ -15,7 +15,7 @@ The FPGA device must be programmed with the icoSoC platform. The platform provid
 
 ## Status
 
-At the momemt this code is an alpha version intended for testing. It is written in C and RISC-V assembly.
+At the momemt this code is an experimental alpha version intended for testing. It is written in C and RISC-V assembly.
 
 As of September 2020 these features are already working:
 
@@ -40,7 +40,7 @@ The following should be implemented in the near future:
 
 ## Links
 
-* RIOT OS - the official repository (currently without any icoBoard or FPGA support) - https://github.com/RIOT-OS/RIOT
+* RIOT OS - the official repository (without any icoBoard support) - https://github.com/RIOT-OS/RIOT
 * icoBoard - Lattice iCE40HX FPGA board - http://icoboard.org/
 * picorv32 - RISC-V RV32IMC softcore CPU - https://github.com/cliffordwolf/picorv32
 * icoSoC - SoC peripherals for picorv32 - https://github.com/cliffordwolf/icotools/tree/master/icosoc
