@@ -1,9 +1,9 @@
 
+> 
+> **The official RIOT OS repositoy is at: https://github.com/RIOT-OS/RIOT**
+>
 
-**The official RIOT OS repositoy is at: https://github.com/RIOT-OS/RIOT**
-
-
-# RIOT OS for icoBoard FPGA board with picorv32 RISC-V core
+# RIOT OS for icoBoard FPGA with picorv32 RISC-V core
 
 ## Overview
 
@@ -25,14 +25,14 @@ As of September 2020 all the important features are already working:
 * stdio-uart
 * shell
 * UART (RX is implemented without interrupts as the icoSoC UART does not currently support them)
-* GPIO
-* SAUL GPIO
 * the build process
 * the programming process (both SRAM and FLASH - using icoprog)
 * the following examples have been tested: default, hello-world, filesystem
 
 The following should be implemented in the near future:
 
+* GPIO
+* SAUL GPIO
 * PWM
 * SAUL PWM
 * support for alternative icoSoC configurations (alternative mod addresses etc.)
