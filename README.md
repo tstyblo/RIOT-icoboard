@@ -51,6 +51,12 @@ The following should be implemented in the near future:
 * Jupiter - RISC-V assembler and runtime simulator - https://github.com/andrescv/Jupiter
 * SparkFun RED-V RedBoard - SiFive RISC-V FE310 SoC - https://www.sparkfun.com/products/15594
 
+## Documentation
+
+You can find more info in the [boards/icosoc/doc.txt](boards/icosoc/doc.txt) file.
+
+## License
+
 The new code is licenced under the same conditions as RIOT OS (GNU LGPL version 2.1 as published by the Free Software Foundation).
 
 Created and maintained by Tomas Styblo (tstyblo@gmail.com).
