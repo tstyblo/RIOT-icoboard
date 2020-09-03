@@ -17,7 +17,7 @@ The FPGA device must be programmed with the icoSoC platform. The platform provid
 
 At the momemt this code is an alpha version intended for testing. It is written in C and RISC-V assembly.
 
-As of September 2020 all the important features are already working:
+As of September 2020 these features are already working:
 
 * threads
 * newlib (libc for embedded systems)
