@@ -9,7 +9,9 @@
 
 This experimental RIOT OS repository has been created in order to port the RIOT OS embedded operating system to the icoBoard FPGA board running the picorv32 RISC-V softcore CPU.
 
-The FPGA board is based on the Lattice iCE40HX device, which is fully supported by open source tools.
+The board is based on the Lattice iCE40HX FPGA device, which is fully supported by open source tools. 
+
+You'll also need the icoUSBaseBoard adapter board so that you can connect the icoBoard to a normal PC via USB.
 
 The FPGA device must be programmed with the icoSoC platform. The platform provides the picorv32 RISC-V softcore CPU written in Verilog, plus some basic peripherals (interrupt controller, SRAM interface, UART, GPIO, PWM, bootloader firmware). 
 
