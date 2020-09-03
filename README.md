@@ -1,132 +1,56 @@
-[![Nightly CI status master][master-ci-badge]][master-ci-link]
-[![IRC][irc-badge]][irc-link]
-[![Matrix][matrix-badge]][matrix-link]
-
-                          ZZZZZZ
-                        ZZZZZZZZZZZZ
-                      ZZZZZZZZZZZZZZZZ
-                     ZZZZZZZ     ZZZZZZ
-                    ZZZZZZ        ZZZZZ
-                    ZZZZZ          ZZZZ
-                    ZZZZ           ZZZZZ
-                    ZZZZ           ZZZZ
-                    ZZZZ          ZZZZZ
-                    ZZZZ        ZZZZZZ
-                    ZZZZ     ZZZZZZZZ       777        7777       7777777777
-              ZZ    ZZZZ   ZZZZZZZZ         777      77777777    77777777777
-          ZZZZZZZ   ZZZZ  ZZZZZZZ           777     7777  7777       777
-        ZZZZZZZZZ   ZZZZ    Z               777     777    777       777
-       ZZZZZZ       ZZZZ                    777     777    777       777
-      ZZZZZ         ZZZZ                    777     777    777       777
-     ZZZZZ          ZZZZZ    ZZZZ           777     777    777       777
-     ZZZZ           ZZZZZ    ZZZZZ          777     777    777       777
-     ZZZZ           ZZZZZ     ZZZZZ         777     777    777       777
-     ZZZZ           ZZZZ       ZZZZZ        777     777    777       777
-     ZZZZZ         ZZZZZ        ZZZZZ       777     777    777       777
-      ZZZZZZ     ZZZZZZ          ZZZZZ      777     7777777777       777
-       ZZZZZZZZZZZZZZZ            ZZZZ      777      77777777        777
-         ZZZZZZZZZZZ               Z
-            ZZZZZ
-
-The friendly Operating System for IoT!
-
-RIOT is a real-time multi-threading operating system that supports a range of
-devices that are typically found in the Internet of Things (IoT):
-8-bit, 16-bit and 32-bit microcontrollers.
-
-RIOT is based on the following design principles: energy-efficiency, real-time
-capabilities, small memory footprint, modularity, and uniform API access,
-independent of the underlying hardware (this API offers partial POSIX
-compliance).
-
-RIOT is developed by an international open source community which is
-independent of specific vendors (e.g. similarly to the Linux community).
-RIOT is licensed with LGPLv2.1, a copyleft license which fosters
-indirect business models around the free open-source software platform
-provided by RIOT, e.g. it is possible to link closed-source code with the
-LGPL code.
-
-## FEATURES
-
-RIOT is based on a microkernel architecture, and provides features including,
-but not limited to:
-
-* a preemptive, tickless scheduler with priorities
-* flexible memory management
-* high resolution, long-term timers
-* support 100+ boards based on AVR, MSP430, ESP8266, ESP32, MIPS, RISC-V,
-  ARM7 and ARM Cortex-M
-* the native port allows to run RIOT as-is on Linux, BSD, and MacOS. Multiple
-  instances of RIOT running on a single machine can also be interconnected via
-  a simple virtual Ethernet bridge
-* IPv6
-* 6LoWPAN (RFC4944, RFC6282, and RFC6775)
-* UDP
-* RPL (storing mode, P2P mode)
-* CoAP
-* CCN-Lite
-* Sigfox
-* LoRaWAN
 
 
-## GETTING STARTED
-* You want to start the RIOT? Just follow our
-[quickstart guide](https://doc.riot-os.org/index.html#the-quickest-start) or
-try this
-[tutorial](https://github.com/RIOT-OS/Tutorials/blob/master/README.md).
-For specific toolchain installation, follow instructions in the
-[getting started](https://doc.riot-os.org/getting-started.html) page.
-* The RIOT API itself can be built from the code using doxygen. The latest
-  version of the documentation is uploaded daily to
-  [riot-os.org/api](https://riot-os.org/api).
-
-### USING THE NATIVE PORT WITH NETWORKING
-If you compile RIOT for the native cpu and include the `netdev_tap` module,
-you can specify a network interface like this: `PORT=tap0 make term`
-
-#### SETTING UP A TAP NETWORK
-There is a shell script in `RIOT/dist/tools/tapsetup` called `tapsetup` which
-you can use to create a network of tap interfaces.
-
-*USAGE*
-
-To create a bridge and two (or `count` at your option) tap interfaces:
-
-    sudo ./dist/tools/tapsetup/tapsetup [-c [<count>]]
-
-## CONTRIBUTE
-
-To contribute something to RIOT, please refer to our
-[contributing document](CONTRIBUTING.md).
-
-## MAILING LISTS
-* RIOT OS kernel developers list
- * devel@riot-os.org (https://lists.riot-os.org/mailman/listinfo/devel)
-* RIOT OS users list
- * users@riot-os.org (https://lists.riot-os.org/mailman/listinfo/users)
-* RIOT commits
- * commits@riot-os.org (https://lists.riot-os.org/mailman/listinfo/commits)
-* Github notifications
- * notifications@riot-os.org
-   (https://lists.riot-os.org/mailman/listinfo/notifications)
-
-## LICENSE
-* Most of the code developed by the RIOT community is licensed under the GNU
-  Lesser General Public License (LGPL) version 2.1 as published by the Free
-  Software Foundation.
-* Some external sources, especially files developed by SICS are published under
-  a separate license.
-
-All code files contain licensing information.
-
-For more information, see the RIOT website:
-
-https://www.riot-os.org
+**The official RIOT OS repositoy is at: https://github.com/RIOT-OS/RIOT**
 
 
-[master-ci-badge]: https://ci.riot-os.org/RIOT-OS/RIOT/master/latest/badge.svg
-[master-ci-link]: https://ci.riot-os.org/nightlies.html#master
-[irc-badge]: https://img.shields.io/badge/IRC-join%20chat%20%E2%86%92-blue.svg
-[irc-link]: https://webchat.freenode.net?channels=%23riot-os
-[matrix-badge]: https://img.shields.io/badge/Matrix-join%20chat%20%E2%86%92-blue.svg
-[matrix-link]: https://matrix.to/#/#riot-os:matrix.org
+# RIOT OS for icoBoard FPGA board with picorv32 RISC-V core
+
+## Overview
+
+This experimental RIOT OS repository has been created in order to port the RIOT OS embedded operating system to the icoBoard FPGA board running the picorv32 RISC-V softcore CPU.
+
+The FPGA board is based on the Lattice iCE40HX device, which is fully supported by open source tools.
+
+The FPGA device must be programmed with the icoSoC platform. The platform provides the picorv32 RISC-V softcore CPU written in Verilog, plus some basic peripherals (interrupt controller, UART, GPIO, PWM, bootloader firmware). 
+
+## Status
+
+At the momemt this code is an alpha version intended for testing. It is written in C and RISC-V assembly.
+
+As of September 2020 all the important features are already working:
+
+* threads
+* newlib (libc for embedded systems)
+* VFS filesystem layer
+* stdio-uart
+* shell
+* UART (RX is implemented without interrupts as the icoSoC UART does not currently support them)
+* GPIO
+* SAUL GPIO
+* the build process
+* the programming process (both SRAM and FLASH - using icoprog)
+* the following examples have been tested: default, hello-world, filesystem
+
+The following should be implemented in the near future:
+
+* PWM
+* SAUL PWM
+* support for alternative icoSoC configurations (alternative mod addresses etc.)
+* tests
+
+## Links
+
+* RIOT OS - the official repository (currently without any icoBoard or FPGA support) - https://github.com/RIOT-OS/RIOT
+* icoBoard - Lattice iCE40HX FPGA board - http://icoboard.org/
+* picorv32 - RISC-V RV32IMC softcore CPU - https://github.com/cliffordwolf/picorv32
+* icoSoC - SoC peripherals for picorv32 - https://github.com/cliffordwolf/icotools/tree/master/icosoc
+* IceStorm - Lattice iCE40 FPGA open source tools - http://www.clifford.at/icestorm/
+* RISC-V GNU Compiler Toolchain - https://github.com/riscv/riscv-gnu-toolchain
+* RISC-V Instruction Set Manual 2.2 - https://content.riscv.org/wp-content/uploads/2017/05/riscv-spec-v2.2.pdf
+* Jupiter - RISC-V assembler and runtime simulator - https://github.com/andrescv/Jupiter
+* SparkFun RED-V RedBoard - SiFive RISC-V FE310 SoC - https://www.sparkfun.com/products/15594
+
+The new code is licenced under the same conditions as RIOT OS (GNU LGPL version 2.1 as published by the Free Software Foundation).
+
+Created and maintained by Tomas Styblo (tstyblo@gmail.com).
+
