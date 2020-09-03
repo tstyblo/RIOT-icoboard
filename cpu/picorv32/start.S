@@ -7,6 +7,7 @@
  */
 
 #include "newlib.h"
+#define IOPORT_CONSOLE 0x30000000
 
 #=========================================================================
 # crt0.S : Entry point for RISC-V user programs (newlib)
@@ -27,16 +28,16 @@ r_type_insn(0b0000011, 0, regnum_ ## _rs, 0b110, regnum_ ## _rd, 0b0001011)
 
 _start:
 /*
-    li t0, 0x30000000
+    li t0, IOPORT_CONSOLE
     srli t1, sp, 24
     sw t1, 0(t0)
-    li t0, 0x30000000
+    li t0, IOPORT_CONSOLE
     srli t1, sp, 16
     sw t1, 0(t0)
-    li t0, 0x30000000
+    li t0, IOPORT_CONSOLE
     srli t1, sp, 8
     sw t1, 0(t0)
-    li t0, 0x30000000
+    li t0, IOPORT_CONSOLE
     mv t1, sp
     sw t1, 0(t0)
 

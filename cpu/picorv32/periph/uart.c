@@ -44,7 +44,7 @@ void uart_write(uart_t dev, const uint8_t *data, size_t len)
     //ICODEBUG("uart.c - uart_write - START")
     size_t i;
     for (i = 0; i < len; i++)
-        *(volatile int*)0x30000000 = data[i];
+        *(volatile int*)IOPORT_CONSOLE = data[i];
 
     //ICODEBUG("uart.c - uart_write - END")
 }
@@ -54,7 +54,7 @@ size_t uart_read(uart_t dev, int8_t *data, size_t len)
     unsigned long i = 0;
     //ICODEBUG("uart.c - uart_read - START")
     for (size_t rb = 0; rb < len;) {
-        int8_t v = *(volatile int8_t*)0x30000000;
+        int8_t v = *(volatile int8_t*)IOPORT_CONSOLE;
         // DEBUG("uart.c - uart_read - byte: %d rb=%d len=%d", v, rb, len);
         if (v >= 0)
             data[rb++] = v;

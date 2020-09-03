@@ -13,6 +13,8 @@
 
 //#include "periph/gpio.h"
 
+#define IOPORT_CONSOLE 0x30000000
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -22,7 +24,7 @@ extern "C" {
     { \
         const unsigned char s[] = msg "\n"; \
         for (int i = 0; s[i] != '\0'; i++) \
-            *(volatile int*)0x30000000 = s[i]; \
+            *(volatile int*)IOPORT_CONSOLE = s[i]; \
     }
 #define ICODEBUG2(format, ...) printf (format "\n", ## __VA_ARGS__) ;
 #else

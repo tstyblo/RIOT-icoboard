@@ -7,6 +7,7 @@
  */
 
 #include "context_frame.h"
+#define IOPORT_CONSOLE 0x30000000
 
 .section      .text
 .align 2
@@ -188,7 +189,7 @@ trap_entry:
     sw a7, a7_OFFSET(sp)
 
 /*
-    li t0, 0x30000000
+    li t0, IOPORT_CONSOLE
     li t1, 0x32
     sw t1, 0(t0)
     li t1, 0x0A
@@ -210,7 +211,7 @@ trap_entry:
     //call    _asm_test_c
     // D - end	
 /*
-    li t0, 0x30000000
+    li t0, IOPORT_CONSOLE
     li t1, 0x33
     sw t1, 0(t0)
     li t1, 0x0A
@@ -244,7 +245,7 @@ null_thread:
     call handle_trap
 
 /*
-    li t0, 0x30000000
+    li t0, IOPORT_CONSOLE
     li t1, 0x37
     sw t1, 0(t0)
     li t1, 0x0A
