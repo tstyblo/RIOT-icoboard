@@ -44,14 +44,16 @@ The following should be implemented in the near future:
 ## Links
 
 * RIOT OS - the official repository (without any icoBoard support) - https://github.com/RIOT-OS/RIOT
-* icoBoard - Lattice iCE40HX FPGA board - http://icoboard.org/
+* icoBoard - Lattice iCE40HX FPGA board - https://shop.trenz-electronic.de/en/TE0887-03M-icoBoard-Version-1.1-with-8-MBit-SRAM
+* icoUSBaseBoard - for connecting the icoBoard to a normal PC via USB - https://shop.trenz-electronic.de/en/TE0889-02-icoUSBaseboard-FTDI-Interfacebasis-for-icoBoard
+* icoBoard.org - project homepage and open source tools - http://icoboard.org/
 * picorv32 - RISC-V RV32IMC softcore CPU - https://github.com/cliffordwolf/picorv32
 * icoSoC - SoC peripherals for picorv32 - https://github.com/cliffordwolf/icotools/tree/master/icosoc
 * IceStorm - Lattice iCE40 FPGA open source tools - http://www.clifford.at/icestorm/
 * RISC-V GNU Compiler Toolchain - https://github.com/riscv/riscv-gnu-toolchain
 * RISC-V Instruction Set Manual 2.2 - https://content.riscv.org/wp-content/uploads/2017/05/riscv-spec-v2.2.pdf
 * Jupiter - RISC-V assembler and runtime simulator - https://github.com/andrescv/Jupiter
-* SparkFun RED-V RedBoard - SiFive RISC-V FE310 SoC - https://www.sparkfun.com/products/15594
+* SparkFun RED-V RedBoard - SiFive RISC-V FE310 MCU SoC - https://www.sparkfun.com/products/15594
 
 ## Documentation
 
