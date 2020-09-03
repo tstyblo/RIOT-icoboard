@@ -26,7 +26,7 @@ As of September 2020 these features are already working:
 * shell
 * UART (RX is implemented without interrupts as the icoSoC UART does not currently support them)
 * the build process
-* the programming process (both SRAM and FLASH - using icoprog)
+* the standard programming mechanism (FLASH only - using icoprog - but the binaries run fine from both FLASH and SRAM)
 * the following examples have been tested: default, hello-world, filesystem
 
 The following should be implemented in the near future:
@@ -35,6 +35,7 @@ The following should be implemented in the near future:
 * SAUL GPIO
 * PWM
 * SAUL PWM
+* programming mechanism - SRAM (using icoprog)
 * support for alternative icoSoC configurations (alternative mod addresses etc.)
 * tests
 
