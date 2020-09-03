@@ -35,8 +35,8 @@ The following should be implemented in the near future:
 * SAUL GPIO
 * PWM
 * SAUL PWM
-* FLASH MDT device for VFS
-* SRAM MDT device for VFS
+* FLASH MTD device for VFS
+* SRAM MTD device for VFS
 * programming mechanism - SRAM (using icoprog)
 * support for alternative icoSoC configurations (alternative mod addresses etc.)
 * tests
