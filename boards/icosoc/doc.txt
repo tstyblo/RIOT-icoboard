@@ -1,0 +1,33 @@
+/*
+ * Copyright (C) 2020 Tomas Styblo
+ *
+ * This file is subject to the terms and conditions of the GNU Lesser
+ * General Public License v2.1. See the file LICENSE in the top level
+ * directory for more details.
+ */
+
+/**
+ * @defgroup    boards_icosoc icoBoard with icoSoC and picorv32 core
+ * @ingroup     boards_icosoc
+ * @brief       Support for icoBoard with icoSoC and picorv32 core
+ * @author      Tomas Styblo <tstyblo@gmail.com>
+
+### Overview
+
+Only flash memory programming is supported when using the standard build targets.
+
+First you must program icosoc.bin into the flash memory:
+
+# icoprog -f < icosoc.bin
+
+This is needed only the first time.
+
+You can obtain icosoc.bin by compiling one of the examples in the icosoc distribution.
+
+Then you can use the following to compile and load the example apps into the flash memory:
+
+# make flash
+# make reset
+# make term
+
+*/

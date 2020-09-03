@@ -1,0 +1,12 @@
+#USEMODULE += newlib_nano
+#USEMODULE += newlib_syscalls_picorv32
+USEMODULE += newlib
+USEMODULE += newlib_syscalls_default
+#USEMODULE += sifive_drivers_fe310
+
+USEMODULE += periph
+#USEMODULE += periph_pm
+
+ifneq (,$(filter periph_rtc,$(USEMODULE)))
+#  FEATURES_REQUIRED += periph_rtt
+endif

@@ -1,0 +1,3 @@
+CFLAGS += -Wno-pedantic
+
+include $(RIOTMAKE)/arch/icosoc.inc.mk
