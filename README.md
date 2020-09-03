@@ -11,7 +11,7 @@ This experimental RIOT OS repository has been created in order to port the RIOT 
 
 The FPGA board is based on the Lattice iCE40HX device, which is fully supported by open source tools.
 
-The FPGA device must be programmed with the icoSoC platform. The platform provides the picorv32 RISC-V softcore CPU written in Verilog, plus some basic peripherals (interrupt controller, UART, GPIO, PWM, bootloader firmware). 
+The FPGA device must be programmed with the icoSoC platform. The platform provides the picorv32 RISC-V softcore CPU written in Verilog, plus some basic peripherals (interrupt controller, SRAM interface, UART, GPIO, PWM, bootloader firmware). 
 
 ## Status
 
@@ -60,6 +60,5 @@ You can find more info in the [boards/icosoc/doc.txt](boards/icosoc/doc.txt) fil
 ## License
 
 The new code is licenced under the same conditions as RIOT OS (GNU LGPL version 2.1 as published by the Free Software Foundation).
-
-Created and maintained by Tomas Styblo (tstyblo@gmail.com).
+The new code is maintained by Tomas Styblo (tstyblo@gmail.com).
 
