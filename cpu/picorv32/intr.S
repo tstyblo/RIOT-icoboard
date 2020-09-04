@@ -186,7 +186,14 @@ trap_entry:
     li t1, 0x0A
     sw t1, 0(t0)
 */
-    /* Get the interrupt cause, PC, and address */
+
+/*  Get the return PC and the pending interrupts mask. These arguments are then passed to handle_trap.
+
+    "
+    When the IRQ handler is called, the register q0 contains the return address and q1 contains a bitmask of all IRQs to be handled.
+    This means one call to the interrupt handler needs to service more than one IRQ when more than one bit is set in q1.
+    "
+*/
 	picorv32_getq_insn(a0, q0)
 	picorv32_getq_insn(a1, q1)
 
@@ -204,8 +211,8 @@ trap_entry:
     sw t1, 0(t0)
 */
 
+    /* Is the active thread NULL? */
     beqz tp, null_thread
-
 
 /*
     li t1, 0x34
@@ -227,7 +234,7 @@ null_thread:
        starting address and just abandon stack when finished. */
     la  sp, _sp_isr
 
-    /*  Call handle_trap with MCAUSE and MEPC register value as args */
+    /*  Call handle_trap with the return PC (a0) and the pending interrupts mask as arguments (a1). */
     call handle_trap
 
 /*
@@ -245,7 +252,6 @@ null_thread:
 
     /*  Set return PC */
     lw a0, pc_OFFSET(sp)
-
 	picorv32_setq_insn(q0, a0)
 
     /* Restore registers from stack */
