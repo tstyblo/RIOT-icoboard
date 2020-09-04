@@ -121,13 +121,6 @@ _asm_test:
     sw	    s0,8(sp)
     addi    s0,sp,16
     
-    // 1:
-    // mv      t0, a0
-    // addi    t0, t0, 1
-    // mv      a0, t0
-    // 2:
-    // li   a0, 0xaa
-    // 3:
     auipc a0, 0
     mv a1, ra
     mv a2, sp
@@ -151,12 +144,8 @@ _picorv32_maskirq:
 
 .balign 16
 trap_entry:
-    // D
-    //mv a0, ra
-    //mv a1, tp
-    //mv a2, sp
-    //call    _asm_test_c
-    // D - end	
+    /* Restore t0 - overwritten in icosoc firmware.S by our mod */
+    picorv32_getq_insn(t0, q2)
 
     /* Save registers to stack */
     addi sp, sp, -CONTEXT_FRAME_SIZE
@@ -207,11 +196,6 @@ trap_entry:
     /*  Get the active thread (could be NULL) */
     lw tp, sched_active_thread
 
-    // D
-    //mv a1, a1
-    //mv a2, sp
-    //call    _asm_test_c
-    // D - end	
 /*
     li t0, IOPORT_CONSOLE
     li t1, 0x33
@@ -261,16 +245,6 @@ null_thread:
 
     /*  Set return PC */
     lw a0, pc_OFFSET(sp)
-
-    // D
-    //mv a1, tp
-    //mv a2, sp
-    //call    _asm_test_c
-    // D - end	
-
-    //lw tp, sched_active_thread
-    //lw sp, SP_OFFSET_IN_THREAD(tp)
-    //lw a0, pc_OFFSET(sp)
 
 	picorv32_setq_insn(q0, a0)
 
