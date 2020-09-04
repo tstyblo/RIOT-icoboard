@@ -183,7 +183,6 @@ void cpu_switch_context_exit(void)
 
 void thread_yield_higher(void)
 {
-    // There must not be anything else than the ebreak call here.
     __asm__ volatile ("ebreak");
 }
 
