@@ -27,7 +27,7 @@
 extern "C" {
 #endif
 
-// this address comes from icosoc - firmware.S
+// this address is specified in icosoc firmware.S
 #define IRQ_HANDLER_ADDR 0x0000000000000008
 
 #define IRQ_TIMER       0
