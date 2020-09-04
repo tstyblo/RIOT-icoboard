@@ -16,13 +16,17 @@
 
 Only flash memory programming is supported when using the standard build targets.
 
-First you must program icosoc.bin into the flash memory:
+First, you will have to patch the common/firmware.S file used by icosoc as our interrupt handler written in assembly must be called directly.
+
+The patch is in boards/icosoc/dist/icosoc-firmware_S-irq_vec.patch.
+
+Then you can create icosoc.bin by compiling one of the examples in the icosoc distribution.
+
+Then you must program icosoc.bin into the flash memory:
 
 # icoprog -f < icosoc.bin
 
 This is needed only the first time.
-
-You can obtain icosoc.bin by compiling one of the examples in the icosoc distribution.
 
 Then you can use the following to compile and load the example apps into the flash memory:
 
