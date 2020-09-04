@@ -30,6 +30,7 @@ As of September 2020 these features are already working:
 * the build process
 * the standard programming mechanism (FLASH only - using icoprog - but the binaries run fine from both FLASH and SRAM)
 * the following examples have been tested: default, hello-world, filesystem
+* the following tests have been tested: thread_basic, thread_cooperation, thread_msg
 
 The following should be implemented in the near future:
 
@@ -58,6 +59,8 @@ The following should be implemented in the near future:
 * SparkFun RED-V RedBoard - SiFive RISC-V FE310 MCU SoC - https://www.sparkfun.com/products/15594
 
 ## Documentation
+
+You'll have to patch the icosoc firmware first, otherwise the interrupt handler and threads won't work.
 
 You can find more info in the [boards/icosoc/doc.txt](boards/icosoc/doc.txt) file.
 
