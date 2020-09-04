@@ -8,7 +8,7 @@
 
 #include <string.h>
 
-#define ENABLE_DEBUG 0
+#define ENABLE_DEBUG 1
 #include "debug.h"
 #include "cpu.h"
 #include "board.h"
@@ -57,6 +57,6 @@ void cpu_init(void)
 
 int _asm_test_c(unsigned int a0, unsigned int a1, unsigned int a2)
 {
-    DEBUG("a0=%08x a1=%08x a2=%08x", a0, a1, a2);
+    DEBUG("a0=0x%08x a1=0x%08x a2=0x%08x\n", a0, a1, a2);
     return a0;
 }
