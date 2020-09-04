@@ -26,7 +26,7 @@ As of September 2020 these features are already working:
 * VFS filesystem layer
 * stdio-uart
 * shell
-* UART (RX is implemented without interrupts as the icoSoC UART does not currently support them)
+* UART (RX is implemented without interrupts as the icoSoC console UART does not currently support them)
 * the build process
 * the standard programming mechanism (FLASH only - using icoprog - but the binaries run fine from both FLASH and SRAM)
 * the following examples have been tested: default, hello-world, filesystem
@@ -34,15 +34,21 @@ As of September 2020 these features are already working:
 
 The following should be implemented in the near future:
 
-* GPIO
-* SAUL GPIO
-* PWM
-* SAUL PWM
+* GPIO, SAUL GPIO
+* PWM, SAUL PWM
 * FLASH MTD device for VFS
 * SRAM MTD device for VFS
 * programming mechanism - SRAM (using icoprog)
 * support for alternative icoSoC configurations (alternative mod addresses etc.)
 * tests
+
+## Documentation
+
+All the new code is in the "icosoc" branch.
+
+You'll have to patch the icosoc firmware first, otherwise the interrupt handler and threads won't work.
+
+You can find more info in the [boards/icosoc/doc.txt](boards/icosoc/doc.txt) file.
 
 ## Links
 
@@ -57,12 +63,6 @@ The following should be implemented in the near future:
 * RISC-V Instruction Set Manual 2.2 - https://content.riscv.org/wp-content/uploads/2017/05/riscv-spec-v2.2.pdf
 * Jupiter - RISC-V assembler and runtime simulator - https://github.com/andrescv/Jupiter
 * SparkFun RED-V RedBoard - SiFive RISC-V FE310 MCU SoC - https://www.sparkfun.com/products/15594
-
-## Documentation
-
-You'll have to patch the icosoc firmware first, otherwise the interrupt handler and threads won't work.
-
-You can find more info in the [boards/icosoc/doc.txt](boards/icosoc/doc.txt) file.
 
 ## License
 
