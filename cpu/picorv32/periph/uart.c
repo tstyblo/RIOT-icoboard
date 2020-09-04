@@ -27,6 +27,7 @@
 #include "thread.h"
 #include "periph/uart.h"
 
+#define _UART_RX_DELAY 1000000
 
 int uart_init(uart_t dev, uint32_t baudrate, uart_rx_cb_t rx_cb, void *arg)
 {
@@ -64,7 +65,7 @@ size_t uart_read(uart_t dev, int8_t *data, size_t len)
         }
         else {
             // wait for an input while yielding - this won't work with multiple threads
-            if (i++ == 1000000) {
+            if (i++ == _UART_RX_DELAY) {
                 i = 0;
                 thread_yield();
             }
