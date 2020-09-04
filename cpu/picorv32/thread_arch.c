@@ -39,8 +39,6 @@
  */
 #define STACK_MARKER                (0x77777777)
 
-void _waitirq();
-
 /**
  * @brief Initialize a thread's stack
  *
