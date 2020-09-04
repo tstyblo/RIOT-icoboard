@@ -32,9 +32,10 @@ As of September 2020 these features are already working:
 * the following examples have been tested: default, hello-world, filesystem
 * the following tests have been tested: thread_basic, thread_cooperation, thread_msg
 
-The following should be implemented in the near future:
+The following will be implemented in the future:
 
-* GPIO, SAUL GPIO
+* **timer**
+* **GPIO, SAUL GPIO**
 * PWM, SAUL PWM
 * FLASH MTD device for VFS
 * SRAM MTD device for VFS
