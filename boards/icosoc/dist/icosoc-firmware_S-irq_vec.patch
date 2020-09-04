@@ -1,5 +1,5 @@
 --- firmware.S.orig	2020-09-02 19:55:45.709579103 +0200
-+++ firmware.S	2020-09-04 13:02:57.618127738 +0200
++++ firmware.S	2020-09-04 13:53:03.698723677 +0200
 @@ -111,6 +111,13 @@ irq_handler_addr:
  
  .balign 16
@@ -8,7 +8,7 @@
 +	picorv32_setq_insn(q2, t0)
 +    lw t0, 8(x0)
 +    jr t0
-+    # UNREACHABLE
++    // UNREACHABLE
 +/* END RIOT-icoboard mod */
 +
  	/* save registers */
