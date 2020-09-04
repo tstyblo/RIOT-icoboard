@@ -27,12 +27,30 @@
 extern "C" {
 #endif
 
+// this address comes from icosoc - firmware.S
+#define IRQ_HANDLER_ADDR 0x0000000000000008
+
+#define IRQ_TIMER       0
+#define IRQ_EBREAK      1
+#define IRQ_BUS_ERROR   2
+
+#define IRQ_MASK_TIMER      (1 << IRQ_TIMER)
+#define IRQ_MASK_EBREAK     (1 << IRQ_EBREAK)
+#define IRQ_MASK_BUS_ERROR  (1 << IRQ_BUS_ERROR)
+
+extern volatile int picorv32_in_isr;
+
+unsigned int _picorv32_maskirq(unsigned volatile int);
+unsigned int _picorv32_waitirq(void);
+
+void handle_trap(unsigned int ra, unsigned int irqs_pending);
+
 /**
  * @brief Enable all maskable interrupts
  */
 static inline unsigned int irq_enable(void)
 {
-    return 0;
+    return _picorv32_maskirq(0);
 }
 
 /**
@@ -40,7 +58,7 @@ static inline unsigned int irq_enable(void)
  */
 static inline __attribute__((always_inline)) unsigned int irq_disable(void)
 {
-    return 0;
+    return _picorv32_maskirq(1);
 }
 
 /**
@@ -48,7 +66,7 @@ static inline __attribute__((always_inline)) unsigned int irq_disable(void)
  */
 static inline void irq_restore(unsigned int state)
 {
-    state = 1;
+    _picorv32_maskirq(state);
 }
 
 /**
@@ -56,7 +74,7 @@ static inline void irq_restore(unsigned int state)
  */
 static inline int irq_is_in(void)
 {
-    return 0;
+    return picorv32_in_isr;
 }
 
 #ifdef __cplusplus

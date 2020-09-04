@@ -52,10 +52,10 @@ _start:
   addi  gp, gp, %pcrel_lo(1b)
 .option pop
 
-  # initialize interrupt vector
-  picorv32_maskirq_insn(x0, x0)
-  la      t1, trap_entry
-  sw      t1, 8(zero)
+  # initialize interrupt mask and interrupt vector - moved to irq_arch.c and cpu_init()
+  # picorv32_maskirq_insn(x0, x0)
+  # la      t1, trap_entry
+  # sw      t1, 8(zero)
 
   # Clear the bss segment
   la      a0, _edata

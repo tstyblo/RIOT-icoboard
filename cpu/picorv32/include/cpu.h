@@ -28,6 +28,11 @@ extern "C" {
  */
 void cpu_init(void);
 
+/**
+ * @brief   Initialization of interrupts
+ */
+void irq_init(void);
+
 int _asm_test(unsigned int a0);
 int _asm_test_c(unsigned int a0, unsigned int a1, unsigned int a2);
 

@@ -203,19 +203,3 @@ void heap_stats(void)
            heap_size, minfo.uordblks, heap_size - minfo.uordblks);
 }
 
-void handle_trap(unsigned int raddr, unsigned int irqs)
-{
-    DEBUG("thread_arch.c - handle_trap - raddr=%08x, irqs=%08x\n", raddr, irqs);
-    sched_context_switch_request = 1;
-
-    if (sched_context_switch_request) {
-        sched_run();
-        if (sched_active_thread) {
-            DEBUG("thread_arch.c - handle_trap - sched_active_thread=%p, pid=%d, name=%s, stack_start=%p sp=%p\n",
-                  sched_active_thread, sched_active_thread->pid, sched_active_thread->name, sched_active_thread->stack_start, sched_active_thread->sp);
-        }
-        else {
-            DEBUG("thread_arch.c - handle_trap - sched_active_thread is NULL\n");
-        }
-    }   
-}

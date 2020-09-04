@@ -7,6 +7,8 @@
  */
 
 #include <string.h>
+
+#define ENABLE_DEBUG 0
 #include "debug.h"
 #include "cpu.h"
 #include "board.h"
@@ -27,8 +29,10 @@ void pm_reboot(void)
 
 void cpu_init(void)
 {
+    irq_init();
+
     ICODEBUG("cpu.c - cpu_init - START");
-    DEBUG("_sheap=%p, _eheap=%p, _sp_isr=%p", &_sheap, &_eheap, &_sp_isr);
+    DEBUG("_sheap=%p, _eheap=%p, _sp_isr=%p\n", &_sheap, &_eheap, &_sp_isr);
     _asm_test(0xff);
     
     /* Initialize clock */
