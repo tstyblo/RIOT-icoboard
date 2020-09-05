@@ -1,1 +1,2 @@
 USEMODULE += stdio_uart_rx_noint
+USEMODULE += periph
