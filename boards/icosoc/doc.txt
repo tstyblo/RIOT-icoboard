@@ -26,7 +26,7 @@ Then follow the instructions in the icosoc documentation to install the riscv-gn
 
 Add the appropriate directory (eg. /opt/riscv32ic/bin) to your PATH.
 
-Then you can create icosoc.bin by compiling one of the examples in the icosoc distribution.
+Then you can create icosoc.bin by compiling the "hello" example in the icosoc distribution.
 
 You will have to add the following to icosoc.cfg before starting:
 
