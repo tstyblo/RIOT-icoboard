@@ -48,4 +48,7 @@ Then you can use the following to compile and load the example apps into the fla
 # make reset
 # make term
 
+You can test it with one of the examples and tests that already work,
+eg. "examples/filesystem" ("ps", "cat /const/hello-world"), or "tests/thread_msg", "tests/thread_cooperation".
+
 */
