@@ -26,7 +26,7 @@ As of September 2020 these features are already working:
 * VFS filesystem layer
 * stdio-uart
 * shell
-* UART (RX is implemented without interrupts as the icoSoC console UART does not currently support them)
+* UART-console (RX is implemented without interrupts as the icoSoC console UART does not currently support them)
 * the build process
 * the standard programming mechanism (FLASH only - using icoprog - but the binaries run fine from both FLASH and SRAM)
 * the following examples have been tested: default, hello-world, filesystem
@@ -63,7 +63,6 @@ You can find more info in the [boards/icosoc/doc.txt](boards/icosoc/doc.txt) fil
 * RISC-V GNU Compiler Toolchain - https://github.com/riscv/riscv-gnu-toolchain
 * RISC-V Instruction Set Manual 2.2 - https://content.riscv.org/wp-content/uploads/2017/05/riscv-spec-v2.2.pdf
 * Jupiter - RISC-V assembler and runtime simulator - https://github.com/andrescv/Jupiter
-* SparkFun RED-V RedBoard - SiFive RISC-V FE310 MCU SoC - https://www.sparkfun.com/products/15594
 
 ## License
 
