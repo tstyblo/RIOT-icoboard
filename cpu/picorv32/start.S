@@ -1,12 +1,13 @@
 /*
+ * Copyright (c) 2017 SiFive Inc. All rights reserved
  * Copyright (C) 2020 Tomas Styblo
- *
  * This file is subject to the terms and conditions of the GNU Lesser
  * General Public License v2.1. See the file LICENSE in the top level
  * directory for more details.
  */
 
 #include "newlib.h"
+
 #define IOPORT_CONSOLE 0x30000000
 
 #=========================================================================
@@ -85,3 +86,12 @@ _start:
 
   call    board_init
   tail    exit
+
+.section .init.irq, "x"
+.global _irq_vec
+.balign 16
+
+_irq_vec:
+  jal x0, trap_entry
+  // UNREACHABLE
+

@@ -18,8 +18,10 @@ SECTIONS
   {
     KEEP (*(SORT_NONE(.init)))
   }
+  . = 0x00010080;
   .text           :
   {
+    *(.init.irq)
     *(.text)
     *(.text.unlikely .text.*_unlikely .text.unlikely.*)
     *(.text.exit .text.exit.*)

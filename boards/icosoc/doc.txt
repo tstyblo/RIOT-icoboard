@@ -16,9 +16,11 @@
 
 Only flash memory programming is supported when using the standard build targets.
 
-First, you will have to patch the common/firmware.S file used by icosoc as our interrupt handler written in assembly must be called directly.
+First, you will have to patch the icosoc.py file used by icosoc to create the icosoc.v Verilog file. 
 
-The patch is in boards/icosoc/dist/icosoc-firmware_S-irq_vec.patch.
+The patch adds a new progaddr_irq option that allow us to use our own IRQ vector.
+
+The patch is in boards/icosoc/dist/icosoc-icosoc_py-progaddr_irq.patch.
 
 Then follow the instructions in the icosoc documentation to install the riscv-gnu-toolchain.
 
@@ -26,7 +28,14 @@ Add the appropriate directory (eg. /opt/riscv32ic/bin) to your PATH.
 
 Then you can create icosoc.bin by compiling one of the examples in the icosoc distribution.
 
-Then you must program icosoc.bin into the flash memory:
+You will have to add the following to icosoc.cfg before starting:
+
+--------------------------------------
+# custom interrupt vector address
+progaddr_irq 32'h0001_0080
+--------------------------------------
+
+When the compilation is finished you must program icosoc.bin into the flash memory:
 
 # icoprog -f < icosoc.bin
 

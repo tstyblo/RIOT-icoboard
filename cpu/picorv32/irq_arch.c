@@ -38,8 +38,10 @@ void trap_entry(void);
 
 void irq_init(void)
 {
-    /* Setup trap handler function */
-    *(volatile int *)IRQ_HANDLER_ADDR = &trap_entry;
+    /* Setup trap handler function
+       NO LONGER NEEDED as we use custom PROGADDR_IRQ now
+    */
+    // *(volatile int *)IRQ_HANDLER_ADDR = &trap_entry;
 
     /* Enable all interrupts */
     irq_enable();

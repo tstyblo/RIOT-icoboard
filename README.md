@@ -47,7 +47,8 @@ The following will be implemented in the future:
 
 All the new code is in the "icosoc" branch.
 
-You'll have to patch the icosoc firmware first, otherwise the interrupt handler and threads won't work.
+You will have to patch the icosoc.py configuration generator and add a new "progaddr_irq" option to icosoc.cfg,
+otherwise the interrupt handler and threads won't work.
 
 You can find more info in the [boards/icosoc/doc.txt](boards/icosoc/doc.txt) file.
 

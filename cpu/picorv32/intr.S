@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2020 Tomas Styblo
- *
+ * Copyright (C) 2017, 2019 Ken Rabold, JP Bonn
  * This file is subject to the terms and conditions of the GNU Lesser
  * General Public License v2.1. See the file LICENSE in the top level
  * directory for more details.
@@ -144,8 +144,10 @@ _picorv32_maskirq:
 
 .balign 16
 trap_entry:
-    /* Restore t0 - overwritten in icosoc firmware.S by our mod */
-    picorv32_getq_insn(t0, q2)
+    /* Restore t0 - overwritten in icosoc firmware.S by our mod.
+       NO LONGER NEEDED as we use custom PROGADDR_IRQ now
+    */
+    // picorv32_getq_insn(t0, q2)
 
     /* Save registers to stack */
     addi sp, sp, -CONTEXT_FRAME_SIZE

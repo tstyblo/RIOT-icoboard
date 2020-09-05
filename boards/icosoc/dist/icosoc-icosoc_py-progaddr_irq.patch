@@ -1,0 +1,53 @@
+diff --git a/icosoc/icosoc.py b/icosoc/icosoc.py
+index 737fdc4..c1dbd6e 100755
+--- a/icosoc/icosoc.py
++++ b/icosoc/icosoc.py
+@@ -37,6 +37,7 @@ enable_flashmem = False
+ enable_flashpmem = False
+ enable_noflashboot = False
+ enable_fastflashboot = False
++progaddr_irq = "32'h 0000_0010"
+ 
+ debug_depth = 256
+ debug_trigat = 0
+@@ -112,6 +113,7 @@ def parse_cfg(f):
+     global enable_flashpmem
+     global enable_noflashboot
+     global enable_fastflashboot
++    global progaddr_irq
+     global debug_code_append
+ 
+     current_mod_name = None
+@@ -184,6 +186,12 @@ def parse_cfg(f):
+             enable_fastflashboot = True
+             continue
+ 
++        if line[0] == "progaddr_irq":
++            assert len(line) == 2
++            assert current_mod_name is None
++            progaddr_irq = line[1]
++            continue
++
+         if line[0] == "debug_net":
+             assert len(line) == 2
+             debug_signals[line[1]] = line[1]
+@@ -571,7 +579,8 @@ icosoc_v["40-cpu"].append("""
+         .COMPRESSED_ISA(<compisa>),
+         .ENABLE_MUL(<muldiv>),
+         .ENABLE_DIV(<muldiv>),
+-        .ENABLE_IRQ(1)
++        .ENABLE_IRQ(1),
++        .PROGADDR_IRQ(<progaddr_irq>)
+     ) cpu (
+         .clk       (clk      ),
+         .resetn    (resetn   ),
+@@ -587,7 +596,8 @@ icosoc_v["40-cpu"].append("""
+     );
+ """
+ .replace("<compisa>", ("1" if enable_compressed_isa else "0"))
+-.replace("<muldiv>", ("1" if enable_muldiv_isa else "0")))
++.replace("<muldiv>", ("1" if enable_muldiv_isa else "0"))
++.replace("<progaddr_irq>", progaddr_irq))
+ 
+ icosoc_v["50-mods"].append("""
+     // -------------------------------
