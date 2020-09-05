@@ -20,6 +20,10 @@ First, you will have to patch the common/firmware.S file used by icosoc as our i
 
 The patch is in boards/icosoc/dist/icosoc-firmware_S-irq_vec.patch.
 
+Then follow the instructions in the icosoc documentation to install the riscv-gnu-toolchain.
+
+Add the appropriate directory (eg. /opt/riscv32ic/bin) to your PATH.
+
 Then you can create icosoc.bin by compiling one of the examples in the icosoc distribution.
 
 Then you must program icosoc.bin into the flash memory:
