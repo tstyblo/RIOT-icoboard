@@ -22,7 +22,8 @@ The patch adds a new progaddr_irq option that allow us to use our own IRQ vector
 
 The patch is in boards/icosoc/dist/icosoc-icosoc_py-progaddr_irq.patch.
 
-You should also apply the icosoc-firmware_c-flash_prog_max_size.patch to firmware.c in order to prevent code from being truncated at 128 KB when it is loaded from the FLASH memory.
+You should also apply the icosoc-firmware_c-flash_prog_max_size.patch to firmware.c
+in order to prevent code from being truncated at 128 KB when it is loaded from the FLASH memory.
 
 Then follow the instructions in the icosoc documentation to install the riscv-gnu-toolchain.
 
@@ -51,6 +52,7 @@ Then you can use the following to compile and load the example apps into the fla
 # make term
 
 You can test it with one of the examples and tests that already work,
-eg. "examples/filesystem" ("ps", "cat /const/hello-world", "format", "mount", "vfs df", "tee /sda/x.txt Hello"), or "tests/thread_msg", "tests/thread_cooperation".
+eg. "examples/filesystem" ("ps", "help", "cat /const/hello-world", "format", "mount", "vfs df", 
+"tee /sda/x.txt Hello", "ls /sda", ...), or "tests/thread_msg", "tests/thread_cooperation".
 
 */
