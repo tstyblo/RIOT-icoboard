@@ -19,7 +19,7 @@ The FPGA device must be programmed with the icoSoC platform. The platform provid
 
 At the momemt this code is an experimental alpha version intended for testing. It is written in C and RISC-V assembly.
 
-As of September 2020 these features are already working:
+These features are available:
 
 * threads
 * newlib (libc for embedded systems)
@@ -38,8 +38,8 @@ As of September 2020 these features are already working:
 The following will be implemented in the future:
 
 * **timer**
-* **GPIO, SAUL GPIO**
-* PWM, SAUL PWM
+* **GPIO, GPIO via SAUL**
+* PWM, PWM via SAUL
 * programming mechanism - SRAM (using icoprog)
 * support for alternative icoSoC configurations (alternative mod addresses etc.)
 * tests
