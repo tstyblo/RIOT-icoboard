@@ -26,10 +26,10 @@ As of September 2020 these features are already working:
 * VFS filesystem layer
 * shell
 * littlefs2 filesystem - all operations, using the onboard FLASH memory starting at 1 MByte
-* MTD device for the FLASH memory - mtd\_spi\_nor
+* MTD block device for the FLASH memory - mtd\_spi\_nor
 * SPI for the FLASH memory
-* UART-console (RX is implemented without interrupts)
-* stdio-uart
+* UART for the console interface
+* STDIO via UART
 * the build process
 * the standard programming mechanism (FLASH only - using icoprog - but the binaries run fine from both FLASH and SRAM)
 * the following examples have been tested: default, hello-world, filesystem
