@@ -24,21 +24,22 @@ As of September 2020 these features are already working:
 * threads
 * newlib (libc for embedded systems)
 * VFS filesystem layer
-* stdio-uart
 * shell
-* UART-console (RX is implemented without interrupts as the icoSoC console UART does not currently support them)
+* littlefs2 filesystem - all operations, using the onboard FLASH memory starting at 1 MByte
+* MTD device for the FLASH memory - mtd\_spi\_nor
+* SPI for the FLASH memory
+* UART-console (RX is implemented without interrupts)
+* stdio-uart
 * the build process
 * the standard programming mechanism (FLASH only - using icoprog - but the binaries run fine from both FLASH and SRAM)
 * the following examples have been tested: default, hello-world, filesystem
-* the following tests have been tested: thread_basic, thread_cooperation, thread_msg
+* the following tests have been tested: thread\_basic, thread\_cooperation, thread\_msg
 
 The following will be implemented in the future:
 
 * **timer**
 * **GPIO, SAUL GPIO**
 * PWM, SAUL PWM
-* FLASH MTD device for VFS
-* SRAM MTD device for VFS
 * programming mechanism - SRAM (using icoprog)
 * support for alternative icoSoC configurations (alternative mod addresses etc.)
 * tests
@@ -47,7 +48,7 @@ The following will be implemented in the future:
 
 All the new code is in the "icosoc" branch.
 
-You will have to patch the icosoc.py configuration generator and add a new "progaddr_irq" option to icosoc.cfg,
+You will have to patch the icosoc.py configuration generator and add a new "progaddr\_irq" option to icosoc.cfg,
 otherwise the interrupt handler and threads won't work.
 
 You can find more info in the [boards/icosoc/doc.txt](boards/icosoc/doc.txt) file.
