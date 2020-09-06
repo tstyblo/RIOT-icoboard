@@ -10,7 +10,7 @@ TARGET_ARCH ?= riscv32-unknown-elf
 
 # define build specific options
 CFLAGS_CPU   = -Os -march=rv32i --std=gnu99 -Os -Wall -Wno-error -ffreestanding -lgcc
-CFLAGS_LINK  = -nostartfiles -e _start
+CFLAGS_LINK  = -nostartfiles
 CFLAGS_DBG  ?= 
 CFLAGS_OPT  ?= -Os
 
