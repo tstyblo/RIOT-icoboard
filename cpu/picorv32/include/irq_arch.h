@@ -28,6 +28,7 @@ extern "C" {
 #endif
 
 // this address is specified in icosoc firmware.S
+// - NO LONGER NEEDED as we use custom PROGADDR_IRQ now
 #define IRQ_HANDLER_ADDR 0x0000000000000008
 
 #define IRQ_TIMER       0

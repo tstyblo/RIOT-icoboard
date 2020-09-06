@@ -13,6 +13,10 @@ extern "C" {
 
 // SPI
 #define SPI_NUMOF 1
+#define PERIPH_SPI_NEEDS_TRANSFER_BYTE  1
+#define PERIPH_SPI_NEEDS_TRANSFER_REG   1
+#define PERIPH_SPI_NEEDS_TRANSFER_REGS  1
+
 
 // MTD SPI
 #define ICOSOC_NOR_SPI_DEV               SPI_DEV(0)

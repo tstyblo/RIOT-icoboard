@@ -19,11 +19,6 @@ extern char _eheap;
 extern char _sp;
 extern char _sp_isr;
 
-void pm_set_lowest(void)
-{
-    //
-}
-
 void pm_reboot(void)
 {
     //

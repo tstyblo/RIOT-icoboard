@@ -2,6 +2,5 @@
 #USEMODULE += newlib_syscalls_picorv32
 USEMODULE += newlib
 USEMODULE += newlib_syscalls_default
-#USEMODULE += sifive_drivers_fe310
 USEMODULE += periph
 #USEMODULE += periph_pm
