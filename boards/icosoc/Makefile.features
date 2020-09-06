@@ -1,5 +1,5 @@
 CPU = picorv32
-CPU_MODEL = picorv32_noirq
+CPU_MODEL = picorv32_icosoc
 
 # Put defined MCU peripherals here (in alphabetical order)
 #FEATURES_PROVIDED += periph_pwm
@@ -8,3 +8,4 @@ CPU_MODEL = picorv32_noirq
 #FEATURES_PROVIDED += periph_spi
 #FEATURES_PROVIDED += periph_timer
 FEATURES_PROVIDED += periph_uart
+FEATURES_PROVIDED += periph_spi
