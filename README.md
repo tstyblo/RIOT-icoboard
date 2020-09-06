@@ -28,12 +28,12 @@ These features are available:
 * littlefs2 filesystem - all operations, using the onboard FLASH memory starting at 1 MByte
 * MTD block device for the FLASH memory - mtd\_spi\_nor
 * SPI for the FLASH memory
-* UART for the console interface
+* UART for the console interface (RX callbacks/interrupts are not supported)
 * STDIO via UART
 * the build process
 * the standard programming mechanism (FLASH only - using icoprog - but the binaries run fine from both FLASH and SRAM)
-* the following examples have been tested: default, hello-world, filesystem
-* the following tests have been tested: thread\_basic, thread\_cooperation, thread\_msg
+* the following examples have been tested: default, hello-world, filesystem, ...
+* the following tests have been tested: thread\_basic, thread\_cooperation, thread\_msg, mutex\_order, ...
 
 The following will be implemented in the future:
 
