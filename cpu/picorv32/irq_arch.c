@@ -23,6 +23,8 @@
 
 #define ENABLE_DEBUG 1
 #include "debug.h"
+
+#include "board.h"
 #include "cpu.h"
 #include "irq.h"
 #include "irq_arch.h"
