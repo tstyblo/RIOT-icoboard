@@ -2,12 +2,22 @@
 #define PERIPH_CONF_H
 
 #include "periph_cpu.h"
+#include "mtd.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-#define UART_NUMOF                  1
+// UART
+#define UART_NUMOF 1
+
+// SPI
+#define SPI_NUMOF 1
+
+// MTD SPI
+#define ICOSOC_NOR_SPI_DEV               SPI_DEV(0)
+extern mtd_dev_t *mtd0;
+#define MTD_0 mtd0
 
 #ifdef __cplusplus
 }

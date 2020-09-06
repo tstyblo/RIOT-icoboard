@@ -7,7 +7,8 @@
  */
 
 /**
- * @ingroup     cpu_picorv32
+ * @ingroup     boards_icosoc
+ * @ingroup     drivers_periph_uart
  * @{
  *
  * @file        uart.c

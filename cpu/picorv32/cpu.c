@@ -8,13 +8,15 @@
 
 #include <string.h>
 
-#define ENABLE_DEBUG 1
-#include "debug.h"
 #include "cpu.h"
 #include "board.h"
 
+#define ENABLE_DEBUG 1
+#include "debug.h"
+
 extern char _sheap;            /* Heap markers from the ld script */
 extern char _eheap;
+extern char _sp;
 extern char _sp_isr;
 
 void pm_set_lowest(void)
@@ -29,28 +31,16 @@ void pm_reboot(void)
 
 void cpu_init(void)
 {
-    irq_init();
-
     ICODEBUG("cpu.c - cpu_init - START");
-    DEBUG("_sheap=%p, _eheap=%p, _sp_isr=%p\n", &_sheap, &_eheap, &_sp_isr);
-    _asm_test(0xff);
+    irq_init();
     
-    /* Initialize clock */
-    //clock_init();
-
-    //ICODEBUG("cpu.c - cpu_init - nanostubs_init")
-    //nanostubs_init();
-
-    ICODEBUG("cpu.c - cpu_init - puts");
-    puts("puts() - test");
-
-    /* Initialize static peripheral */
-    stdio_init();
-    ICODEBUG("cpu.c - cpu_init - periph_init");
+    ICODEBUG("cpu.c - periph_init");
     periph_init();
 
-    ICODEBUG("cpu.c - cpu_init - kernel_init");
-    kernel_init();
+    ICODEBUG("cpu.c - stdio_init");
+    stdio_init();
+
+    DEBUG("_sheap=%p _eheap=%p _sp=%p _sp_isr=%p\n", &_sheap, &_eheap, &_sp, &_sp_isr);
 
     ICODEBUG("cpu.c - cpu_init - END");
 }

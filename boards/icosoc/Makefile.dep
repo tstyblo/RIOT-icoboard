@@ -1,2 +1,7 @@
 USEMODULE += stdio_uart_rx_noint
+USEMODULE += posix_headers
 USEMODULE += periph
+USEMODULE += periph_common
+USEMODULE += periph_spi
+USEMODULE += mtd_spi_nor
+USEMODULE += devfs

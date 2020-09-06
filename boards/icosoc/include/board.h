@@ -10,8 +10,7 @@
 #define BOARD_H
 
 #include "stdio.h"
-
-//#include "periph/gpio.h"
+#include "periph_conf.h"
 
 #define IOPORT_CONSOLE 0x30000000
 
