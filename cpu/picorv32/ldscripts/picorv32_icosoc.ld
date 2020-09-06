@@ -161,9 +161,10 @@ SECTIONS
   . = ALIGN(32 / 8);
   _end = .; PROVIDE (end = .);
   . = DATA_SEGMENT_END (.);
-  _sheap = 0x00030000;
-  _eheap = 0x00035000;
-  _sp_isr = 0x00040000;
+  _sheap    = 0x80000;
+  _eheap    = 0xEFFF0;
+  _sp       = 0xF7FF0;
+  _sp_isr   = 0xFFFF0;
 
   /* Stabs debugging sections.  */
   .stab          0 : { *(.stab) }

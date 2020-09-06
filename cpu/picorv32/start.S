@@ -49,9 +49,11 @@ _start:
   # Initialize global pointer
 .option push
 .option norelax
-1:auipc gp, %pcrel_hi(__global_pointer$)
-  addi  gp, gp, %pcrel_lo(1b)
+  la gp, __global_pointer$
 .option pop
+
+  # Initialize stack pointer
+  la sp, _sp
 
   # initialize interrupt mask and interrupt vector - moved to irq_arch.c and cpu_init()
   # picorv32_maskirq_insn(x0, x0)
