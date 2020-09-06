@@ -30,6 +30,10 @@
 
 #define _UART_RX_DELAY 1000000
 
+/*
+    The icoSoC console UART does not support interrupts.
+    The rx_cb callback will be ignored. Use uart_read() instead.
+*/
 int uart_init(uart_t dev, uint32_t baudrate, uart_rx_cb_t rx_cb, void *arg)
 {
     ICODEBUG("uart.c - uart_init - START")
