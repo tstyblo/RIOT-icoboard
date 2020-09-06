@@ -18,7 +18,7 @@ do_flash() {
     echo "Creating verilog HEX file: $ELFFILE -> $HEXFILE"
     /opt/riscv32ic/bin/riscv32-unknown-elf-objcopy -O verilog "$ELFFILE" "$HEXFILE"
 
-    echo "Writing BIN file to SRAM: $BINFILE"
+    echo "Writing BIN file to FLASH: $BINFILE"
     icoprog -O8 -f < $BINFILE
 }
 
