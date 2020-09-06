@@ -67,6 +67,9 @@ static mtd_dev_t *mtd0 = (mtd_dev_t*)&mtd_sdcard_dev;
  * memory will be used (parameters come from mtd) */
 static littlefs_desc_t fs_desc = {
     .lock = MUTEX_INIT,
+#ifdef BOARD_ICOSOC
+    .base_addr = 16 // start at 1 MByte
+#endif
 };
 
 /* littlefs file system driver will be used */
@@ -83,6 +86,9 @@ static littlefs_desc_t fs_desc = {
  * memory will be used (parameters come from mtd) */
 static littlefs2_desc_t fs_desc = {
     .lock = MUTEX_INIT,
+#ifdef BOARD_ICOSOC
+    .base_addr = 16 // start at 1 MByte
+#endif
 };
 
 /* littlefs file system driver will be used */
