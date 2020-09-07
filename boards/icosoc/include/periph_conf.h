@@ -10,13 +10,13 @@ extern "C" {
 
 // UART
 #define UART_NUMOF 1
+#define _UART_RX_DELAY 1000000
 
 // SPI
 #define SPI_NUMOF 1
 #define PERIPH_SPI_NEEDS_TRANSFER_BYTE  1
 #define PERIPH_SPI_NEEDS_TRANSFER_REG   1
 #define PERIPH_SPI_NEEDS_TRANSFER_REGS  1
-
 
 // MTD SPI
 #define ICOSOC_NOR_SPI_DEV               SPI_DEV(0)

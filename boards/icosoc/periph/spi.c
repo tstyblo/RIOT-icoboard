@@ -20,7 +20,7 @@
  * @}
  */
 
-#include "cpu.h"
+#include "board.h"
 #include "mutex.h"
 #include "assert.h"
 #include "periph/spi.h"
@@ -34,19 +34,19 @@ static mutex_t lock;
 void spi_begin()
 {   
     DEBUG_PUTS("spi_begin");
-    *(volatile uint32_t*)0x20000004 &= ~8;
+    *(volatile uint32_t*)IOPORT_SPI_CTRL &= ~8;
 }   
     
 void spi_end()
 {
     DEBUG_PUTS("spi_end");
-    *(volatile uint32_t*)0x20000004 |= 8;
+    *(volatile uint32_t*)IOPORT_SPI_CTRL |= 8;
 }       
             
 uint8_t spi_xfer(uint8_t value)
 {
-    *(volatile uint32_t*)0x20000008 = value;
-    return *(volatile uint32_t*)0x20000008;
+    *(volatile uint32_t*)IOPORT_SPI_DATA = value;
+    return *(volatile uint32_t*)IOPORT_SPI_DATA;
 }           
             
 void flash_write_enable()
@@ -162,18 +162,18 @@ void spi_transfer_bytes(spi_t dev, spi_cs_t cs, bool cont,
 
     for (size_t i = 0; i < len; i++) {
         if (out) {
-            *(volatile uint32_t*)0x20000008 = out[i];
+            *(volatile uint32_t*)IOPORT_SPI_DATA = out[i];
             // DEBUG("spi_xfer - OUT: 0x%X\n", out[i]);
         }
         else {
-            *(volatile uint32_t*)0x20000008 = 0;
+            *(volatile uint32_t*)IOPORT_SPI_DATA = 0;
         }
         if (in) {
-            in[i] = *(volatile uint32_t*)0x20000008;
+            in[i] = *(volatile uint32_t*)IOPORT_SPI_DATA;
             // DEBUG("spi_xfer - IN: 0x%X\n", in[i]);
         }
         else {
-            junk = *(volatile uint32_t*)0x20000008;
+            junk = *(volatile uint32_t*)IOPORT_SPI_DATA;
         }
     }
 

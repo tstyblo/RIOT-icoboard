@@ -12,7 +12,9 @@
 #include "stdio.h"
 #include "periph_conf.h"
 
-#define IOPORT_CONSOLE 0x30000000
+#define IOPORT_CONSOLE  0x30000000
+#define IOPORT_SPI_CTRL 0x20000004
+#define IOPORT_SPI_DATA 0x20000008
 
 #ifdef __cplusplus
 extern "C" {

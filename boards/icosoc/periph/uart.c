@@ -23,12 +23,9 @@
 #include <assert.h>
 #include <inttypes.h>
 
-#include "cpu.h"
 #include "board.h"
 #include "thread.h"
 #include "periph/uart.h"
-
-#define _UART_RX_DELAY 1000000
 
 /*
     The icoSoC console UART does not support interrupts.
