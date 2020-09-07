@@ -146,42 +146,6 @@ void uart_poweroff(uart_t dev)
     (void) dev;
 }
 
-void icosoc_ser_read(int ser_addr, void *data, int len)
-{
-    ICODEBUG("uart.c - icosoc_ser_read - START")
-    unsigned long delay_i = 0;
-    while (len > 0) {
-        int n = icosoc_ser_read_nb(ser_addr, data, len);
-        data += n, len -= n;
-        
-        // wait for input while yielding
-        /*
-        if (delay_i++ == UART_RX_DELAY) {
-            delay_i = 0;
-            thread_yield();
-        }
-        */
-    }
-    ICODEBUG("uart.c - icosoc_ser_read - END")
-}
-
-void icosoc_ser_write(int ser_addr, const void *data, int len)
-{
-    unsigned long delay_i = 0;
-    while (len > 0) {
-        int n = icosoc_ser_write_nb(ser_addr, data, len);
-        data += n, len -= n;
-        
-        // wait for output while yielding
-        /*
-        if (delay_i++ == UART_RX_DELAY) {
-            delay_i = 0;
-            thread_yield();
-        }
-        */
-    }   
-}
-
 int icosoc_ser_read_nb(int ser_addr, void *data, int maxlen)
 {
     ICODEBUG("uart.c - icosoc_ser_read_nb - START")
