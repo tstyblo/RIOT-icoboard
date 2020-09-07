@@ -24,12 +24,12 @@ These features are working already:
 * kernel threads, messages and mutexes
 * newlib (libc for embedded systems)
 * VFS filesystem layer
-* shell
 * littlefs2 filesystem - all operations, using the onboard FLASH memory starting at 1 MByte
 * MTD block device for the FLASH memory - mtd\_spi\_nor
 * SPI for the FLASH memory
 * UART for the console interface (RX callbacks/interrupts are not supported)
 * STDIO via UART
+* shell
 * the build process
 * the standard programming mechanism (FLASH only - using icoprog - but the binaries run fine from both FLASH and SRAM)
 * the following examples have been tested: default, hello-world, filesystem, ...
