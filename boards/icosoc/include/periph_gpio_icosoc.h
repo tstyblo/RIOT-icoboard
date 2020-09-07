@@ -37,7 +37,7 @@ inline void gpio_clear(gpio_t pin)
 
 inline void gpio_toggle(gpio_t pin)
 {
-    *((volatile uint32_t*)(IOPORT_GPIO_BASE_DATA + IOPORT_GPIO_ADDR * 0x10000)) ^= ~(1 << pin);
+    *((volatile uint32_t*)(IOPORT_GPIO_BASE_DATA + IOPORT_GPIO_ADDR * 0x10000)) ^= (1 << pin);
 }
 
 #ifdef __cplusplus
