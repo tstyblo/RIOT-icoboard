@@ -138,8 +138,7 @@ _picorv32_waitirq:
     ret
 
 _picorv32_maskirq:
-    mv t0, a0
-    picorv32_maskirq_insn(a0, t0)
+    picorv32_maskirq_insn(a0, a0)
     ret
 
 .balign 16
