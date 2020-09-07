@@ -30,16 +30,16 @@ These features are working already:
 * UART for the console interface (RX callbacks/interrupts are not supported)
 * STDIO via UART
 * timer (core clock frequency)
+* GPIO
 * shell
 * the build process
 * the standard programming mechanism (FLASH only - using icoprog - but the binaries run fine from both FLASH and SRAM)
 * the following examples have been tested: default, hello-world, filesystem, ...
 * the following tests have been tested: thread\_basic, thread\_cooperation, thread\_msg, mutex\_order, periph\_timer, ...
 
-The following will be implemented in the future:
+The following may be implemented in the future:
 
-* **GPIO, GPIO via SAUL**
-* PWM, PWM via SAUL
+* PWM
 * programming mechanism - SRAM (using icoprog)
 * support for alternative icoSoC configurations (alternative mod addresses etc.)
 * tests
