@@ -54,7 +54,6 @@ void irq_init(void)
  */
 void handle_trap(unsigned int ra, unsigned int irqs_pending)
 {
-    int irq_serviced = 0;
     DEBUG("thread_arch.c - handle_trap - ra=%08x, irqs_pending=%08x\n", ra, irqs_pending);
     
     /*  Tell RIOT to set sched_context_switch_request instead of
@@ -62,20 +61,21 @@ void handle_trap(unsigned int ra, unsigned int irqs_pending)
     picorv32_in_isr = 1;
 
     /* There may be multiple pending interrupts. */
-    if ((irqs_pending & IRQ_MASK_TIMER) == IRQ_MASK_TIMER) {
+    int irq_serviced = 0;
+    if (irqs_pending & IRQ_MASK_TIMER) {
         timer_isr();
-        irq_serviced = 1;
+        irq_serviced++;
     }
-    if ((irqs_pending & IRQ_MASK_EBREAK) == IRQ_MASK_EBREAK) {
+    if (irqs_pending & IRQ_MASK_EBREAK) {
         sched_context_switch_request = 1;
-        irq_serviced = 1;
+        irq_serviced++;
     }
-    if ((irqs_pending & IRQ_MASK_BUS_ERROR) == IRQ_MASK_BUS_ERROR) {
-        irq_serviced = 1;
+    if (irqs_pending & IRQ_MASK_BUS_ERROR) {
+        irq_serviced++;
         core_panic(PANIC_GENERAL_ERROR, "BUS Error (Unaligned Memory Access)");
     }
 
-    if (irq_serviced != 1) {
+    if (irq_serviced == 0) {
         core_panic(PANIC_GENERAL_ERROR, "Unhandled trap");
     }
 
