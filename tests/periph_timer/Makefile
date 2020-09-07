@@ -32,6 +32,7 @@ BOARDS_TIMER_CLOCK_CORECLOCK := \
   openmote-cc2538 \
   remote-reva \
   remote-revb \
+  icosoc \
   #
 
 ifneq (,$(filter $(BOARDS_TIMER_25kHz),$(BOARD)))
