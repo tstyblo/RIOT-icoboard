@@ -21,7 +21,7 @@ At the momemt this code is an experimental alpha version intended for testing. I
 
 These features are available:
 
-* threads
+* kernel threads, messages and mutexes
 * newlib (libc for embedded systems)
 * VFS filesystem layer
 * shell
@@ -56,7 +56,7 @@ You can find more info in the [boards/icosoc/doc.txt](boards/icosoc/doc.txt) fil
 ## Links
 
 * RIOT OS - the official repository (without any icoBoard support) - https://github.com/RIOT-OS/RIOT
-* icoBoard - Lattice iCE40HX FPGA board - https://shop.trenz-electronic.de/en/TE0887-03M-icoBoard-Version-1.1-with-8-MBit-SRAM
+* icoBoard - Lattice iCE40HX FPGA board, IS61WV51216BLL 8 MBit SRAM, S25FL127S 16 MByte FLASH - https://shop.trenz-electronic.de/en/TE0887-03M-icoBoard-Version-1.1-with-8-MBit-SRAM
 * icoUSBaseBoard - for connecting the icoBoard to a normal PC via USB - https://shop.trenz-electronic.de/en/TE0889-02-icoUSBaseboard-FTDI-Interfacebasis-for-icoBoard
 * icoBoard.org - project homepage and open source tools - http://icoboard.org/
 * picorv32 - RISC-V RV32IMC softcore CPU - https://github.com/cliffordwolf/picorv32
