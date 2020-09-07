@@ -36,7 +36,8 @@ static mtd_spi_nor_t icosoc_nor_dev = {
         .driver = &mtd_spi_nor_driver,
         .page_size = 256,
         .pages_per_sector = 256,
-        .sector_count = (16*15) // 15 MByte in total, starting at 1 MByte
+        .sector_count = (16*16) 
+        // 16 MByte in total, the filesystem must start at the 1 MByte offset
     },
     .params = &icosoc_nor_params,
 };
