@@ -19,7 +19,7 @@ The FPGA device must be programmed with the icoSoC platform. The platform provid
 
 At the momemt this code is an experimental alpha version intended for testing. It is written in C and RISC-V assembly.
 
-These features are available:
+These features are working already:
 
 * kernel threads, messages and mutexes
 * newlib (libc for embedded systems)
