@@ -183,7 +183,7 @@ void cpu_switch_context_exit(void)
 
 void thread_yield_higher(void)
 {
-    __asm__ volatile ("ebreak");
+    __asm__ volatile ("ebreak" : : : "memory");
 }
 
 /**
