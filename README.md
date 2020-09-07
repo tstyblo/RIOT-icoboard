@@ -55,8 +55,8 @@ You can find more info in the [boards/icosoc/doc.txt](boards/icosoc/doc.txt) fil
 
 ## Links
 
-* RIOT OS - the official repository (without any icoBoard support) - https://github.com/RIOT-OS/RIOT
-* icoBoard - Lattice iCE40HX FPGA board, IS61WV51216BLL 8 MBit SRAM, S25FL127S 16 MByte FLASH - https://shop.trenz-electronic.de/en/TE0887-03M-icoBoard-Version-1.1-with-8-MBit-SRAM
+* RIOT OS - the official repository - https://github.com/RIOT-OS/RIOT
+* icoBoard - Lattice iCE40HX8K FPGA, IS61WV51216BLL 8 MBit SRAM, S25FL127S 16 MByte FLASH - https://shop.trenz-electronic.de/en/TE0887-03M-icoBoard-Version-1.1-with-8-MBit-SRAM
 * icoUSBaseBoard - for connecting the icoBoard to a normal PC via USB - https://shop.trenz-electronic.de/en/TE0889-02-icoUSBaseboard-FTDI-Interfacebasis-for-icoBoard
 * icoBoard.org - project homepage and open source tools - http://icoboard.org/
 * picorv32 - RISC-V RV32IMC softcore CPU - https://github.com/cliffordwolf/picorv32
@@ -69,5 +69,5 @@ You can find more info in the [boards/icosoc/doc.txt](boards/icosoc/doc.txt) fil
 ## License
 
 The new code is licenced under the same conditions as RIOT OS (GNU LGPL version 2.1 as published by the Free Software Foundation).
-The new code is maintained by Tomas Styblo (tstyblo@gmail.com).
+The new code is maintained by Tomas Styblo (tstyblo AT gmail.com).
 
