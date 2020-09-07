@@ -63,12 +63,12 @@ void handle_trap(unsigned int ra, unsigned int irqs_pending)
 
     /* There may be multiple pending interrupts. */
     if ((irqs_pending & IRQ_MASK_TIMER) == IRQ_MASK_TIMER) {
+        timer_isr();
         irq_serviced = 1;
-        // TODO
     }
     if ((irqs_pending & IRQ_MASK_EBREAK) == IRQ_MASK_EBREAK) {
-        irq_serviced = 1;
         sched_context_switch_request = 1;
+        irq_serviced = 1;
     }
     if ((irqs_pending & IRQ_MASK_BUS_ERROR) == IRQ_MASK_BUS_ERROR) {
         irq_serviced = 1;

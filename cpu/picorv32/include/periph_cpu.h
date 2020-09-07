@@ -27,9 +27,6 @@
 extern "C" {
 #endif
 
-// unused
-
-
 #ifdef __cplusplus
 }
 #endif

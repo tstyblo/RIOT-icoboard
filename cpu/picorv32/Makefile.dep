@@ -1,6 +1,7 @@
-#USEMODULE += newlib_nano
-#USEMODULE += newlib_syscalls_picorv32
 USEMODULE += newlib
 USEMODULE += newlib_syscalls_default
 USEMODULE += periph
-#USEMODULE += periph_pm
+USEMODULE += periph_common
+USEMODULE += periph_timer
+USEMODULE += periph_uart
+USEMODULE += periph_spi

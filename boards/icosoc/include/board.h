@@ -34,6 +34,7 @@ extern "C" {
 #endif
 
 void board_init(void);
+void timer_isr(void);
 
 #ifdef __cplusplus
 }

@@ -15,6 +15,9 @@ do_flash() {
     echo "flasher.sh - HEXFILE: $HEXFILE"
     echo "flasher.sh - BINFILE: $BINFILE"
 
+    echo "Stripping HEX file: $HEXFILE"
+    /opt/riscv32ic/bin/riscv32-unknown-elf-strip "$ELFFILE"
+
     echo "Creating verilog HEX file: $ELFFILE -> $HEXFILE"
     /opt/riscv32ic/bin/riscv32-unknown-elf-objcopy -O verilog "$ELFFILE" "$HEXFILE"
 

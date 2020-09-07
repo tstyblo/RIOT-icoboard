@@ -8,6 +8,8 @@
 extern "C" {
 #endif
 
+#define CLOCK_CORECLOCK 20000000U
+
 // UART
 #define UART_NUMOF 1
 #define _UART_RX_DELAY 1000000
@@ -19,9 +21,12 @@ extern "C" {
 #define PERIPH_SPI_NEEDS_TRANSFER_REGS  1
 
 // MTD SPI
-#define ICOSOC_NOR_SPI_DEV               SPI_DEV(0)
+#define ICOSOC_NOR_SPI_DEV SPI_DEV(0)
 extern mtd_dev_t *mtd0;
 #define MTD_0 mtd0
+
+// timer
+#define TIMER_NUMOF 1
 
 #ifdef __cplusplus
 }

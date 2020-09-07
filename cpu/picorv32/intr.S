@@ -14,6 +14,7 @@
 .global trap_entry
 .global _picorv32_waitirq
 .global _picorv32_maskirq
+.global _picorv32_timer
 .global _asm_test
 
 /* begin: custom PicoRV32 opcodes */
@@ -139,6 +140,10 @@ _picorv32_waitirq:
 
 _picorv32_maskirq:
     picorv32_maskirq_insn(a0, a0)
+    ret
+
+_picorv32_timer:
+    picorv32_timer_insn(a0, a0)
     ret
 
 .balign 16

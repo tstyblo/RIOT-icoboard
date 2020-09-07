@@ -1,4 +1,4 @@
 MODULE = board
-DIRS = periph
+DIRS =
 
 include $(RIOTBASE)/Makefile.base
