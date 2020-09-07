@@ -25,6 +25,9 @@ extern "C" {
 extern mtd_dev_t *mtd0;
 #define MTD_0 mtd0
 
+// GPIO
+#define GPIO_NUMOF 32
+
 // timer
 #define TIMER_NUMOF 1
 

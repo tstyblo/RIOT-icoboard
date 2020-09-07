@@ -12,6 +12,7 @@
 #include <string.h>
 #include "cpu.h"
 #include "board.h"
+#include "kernel_init.h"
 #include "vfs.h"
 #include "fs/devfs.h"
 #include "timex.h"

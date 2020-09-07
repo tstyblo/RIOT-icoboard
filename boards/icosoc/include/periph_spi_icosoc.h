@@ -20,18 +20,18 @@
 extern "C" {
 #endif
 
-void spi_begin();
-void spi_end();
+void spi_begin(void);
+void spi_end(void);
 
 uint8_t spi_xfer(uint8_t value);
 
-void flash_write_enable();
+void flash_write_enable(void);
 
 void flash_write(int addr, uint8_t *data, int n);
 
 void flash_read(int addr, uint8_t *data, int n);
 
-int flash_wait();
+int flash_wait(void);
 
 #ifdef __cplusplus
 }
