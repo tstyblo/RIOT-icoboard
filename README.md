@@ -29,15 +29,15 @@ These features are working already:
 * SPI for the FLASH memory
 * UART for the console interface (RX callbacks/interrupts are not supported)
 * STDIO via UART
+* timer (core clock frequency)
 * shell
 * the build process
 * the standard programming mechanism (FLASH only - using icoprog - but the binaries run fine from both FLASH and SRAM)
 * the following examples have been tested: default, hello-world, filesystem, ...
-* the following tests have been tested: thread\_basic, thread\_cooperation, thread\_msg, mutex\_order, ...
+* the following tests have been tested: thread\_basic, thread\_cooperation, thread\_msg, mutex\_order, periph\_timer, ...
 
 The following will be implemented in the future:
 
-* **timer**
 * **GPIO, GPIO via SAUL**
 * PWM, PWM via SAUL
 * programming mechanism - SRAM (using icoprog)
