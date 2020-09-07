@@ -12,10 +12,18 @@
 #include <string.h>
 #include "cpu.h"
 #include "board.h"
+#include "kernel_init.h"
 #include "vfs.h"
 #include "fs/devfs.h"
 #include "timex.h"
 #include "mtd_spi_nor.h"
+
+const ser_device_t ser_devices[SER_DEV_NUMOF] = {
+    {
+        .dev = 1,
+        .addr = 1
+    }
+};
 
 static const mtd_spi_nor_params_t icosoc_nor_params = {
     .opcode = &mtd_spi_nor_opcode_default,

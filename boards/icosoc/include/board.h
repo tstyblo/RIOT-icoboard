@@ -12,13 +12,24 @@
 #include "stdio.h"
 #include "periph_conf.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define IOPORT_CONSOLE  0x30000000
 #define IOPORT_SPI_CTRL 0x20000004
 #define IOPORT_SPI_DATA 0x20000008
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#define IOPORT_SER_BASE_DATA    0x20000000
+#define IOPORT_SER_BASE_RDLEN   0x20000004
+#define IOPORT_SER_BASE_WRLEN   0x20000008
+
+typedef struct {
+    uint8_t dev;
+    uint8_t addr;
+} ser_device_t;
+
+extern const ser_device_t ser_devices[SER_DEV_NUMOF];
 
 #if defined ENABLE_DEBUG && ENABLE_DEBUG
 #define ICODEBUG(msg) \
