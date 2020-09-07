@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Ken Rabold
+ * Copyright 2020 Tomas Styblo
  *
  * This file is subject to the terms and conditions of the GNU Lesser
  * General Public License v2.1. See the file LICENSE in the top level
@@ -7,13 +7,13 @@
  */
 
 /**
- * @ingroup     cpu_fe310
+ * @ingroup     cpu_picorv32
  * @{
  *
  * @file        timer.c
  * @brief       Low-level timer implementation
  *
- * @author      Ken Rabold
+ * @author      Tomas Styblo
  * @}
  */
 
