@@ -44,7 +44,7 @@ When the compilation is finished you must program icosoc.bin into the flash memo
 
 This is needed only the first time.
 
-Then you can use the following to compile and load the example apps into the flash memory and to run them:
+Then you can use the following to compile and load the RIOT OS example apps into the flash memory and to run them:
 
 # export BOARD=icosoc
 # make flash
