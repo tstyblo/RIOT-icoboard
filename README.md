@@ -31,12 +31,12 @@ These features are working already:
 * UART for the serial interface (mod\_rs232)
 * STDIO via UART
 * shell
-* timer (core clock frequency)
+* timer, ztimer (core clock frequency)
 * GPIO (mod\_gpio)
 * the build process
 * the standard programming mechanism (FLASH only - using icoprog - but the binaries run fine from both FLASH and SRAM)
 * the following examples have been tested: default, hello-world, filesystem, ...
-* the following tests have been tested: thread\_basic, thread\_cooperation, thread\_msg, mutex\_order, periph\_timer, ...
+* the following tests have been tested: thread\_basic, thread\_cooperation, thread\_msg, mutex\_order, periph\_timer, ztimer\_msg, ...
 
 The following may be implemented in the future:
 
