@@ -31,13 +31,13 @@
 
 static mutex_t lock;
 
-void spi_begin()
+void spi_begin(void)
 {   
     DEBUG_PUTS("spi_begin");
     *(volatile uint32_t*)IOPORT_SPI_CTRL &= ~8;
 }   
     
-void spi_end()
+void spi_end(void)
 {
     DEBUG_PUTS("spi_end");
     *(volatile uint32_t*)IOPORT_SPI_CTRL |= 8;
@@ -49,7 +49,7 @@ uint8_t spi_xfer(uint8_t value)
     return *(volatile uint32_t*)IOPORT_SPI_DATA;
 }           
             
-void flash_write_enable()
+void flash_write_enable(void)
 {
     spi_begin();
     spi_xfer(0x06);
@@ -80,7 +80,7 @@ void flash_read(int addr, uint8_t *data, int n)
     spi_end();
 }
 
-int flash_wait()
+int flash_wait(void)
 {
     while (1)
     {
@@ -115,7 +115,7 @@ void spi_init_pins(spi_t dev)
     // unused
 }
 
-int spi_init_cs(spi_t dev, spi_cs_t cs)
+int spi_init_cs(spi_t dev, __attribute__ ((unused)) spi_cs_t cs)
 {
     DEBUG("spi_init_cs: dev=%d\n", dev);
     (void)dev;
@@ -124,7 +124,8 @@ int spi_init_cs(spi_t dev, spi_cs_t cs)
     return SPI_OK;
 }
 
-int spi_acquire(spi_t dev, spi_cs_t cs, spi_mode_t mode, spi_clk_t clk)
+int spi_acquire(spi_t dev, spi_cs_t cs, __attribute__ ((unused)) spi_mode_t mode,
+                __attribute__ ((unused)) spi_clk_t clk)
 {
     DEBUG("spi_acquire: dev=%d\n", dev);
     (void)cs;
@@ -143,7 +144,7 @@ void spi_release(spi_t dev)
     mutex_unlock(&lock);
 }
 
-void spi_transfer_bytes(spi_t dev, spi_cs_t cs, bool cont,
+void spi_transfer_bytes(spi_t dev, __attribute__ ((unused)) spi_cs_t cs, bool cont,
                         const void *out_, void *in_, size_t len)
 {
     DEBUG("spi_transfer_bytes: dev=%d out_=%p in_=%p cont=%d, len=%d\n", dev, out_, in_, cont, len);

@@ -60,13 +60,21 @@ int timer_set(tim_t dev, int channel, unsigned int timeout)
     return 0;
 }
 
-int timer_set_absolute(tim_t dev, int channel, unsigned int value)
+int timer_set_absolute(tim_t dev, int channel, __attribute__ ((unused)) unsigned int value)
 {
+    if (dev != 0 || channel != 0) {
+        return -1;
+    }
     // unimplemented
     return -1;
 }
 
-int timer_set_periodic(tim_t dev, int channel, unsigned int value, uint8_t flags) {
+int timer_set_periodic(tim_t dev, int channel, __attribute__ ((unused)) unsigned int value,
+                       __attribute__ ((unused)) uint8_t flags)
+{
+    if (dev != 0 || channel != 0) {
+        return -1;
+    }
     // unimplemented
     return -1;
 }
@@ -84,20 +92,27 @@ int timer_clear(tim_t dev, int channel)
 
 unsigned int timer_read(tim_t dev)
 {
+    if (dev != 0) {
+        return -1;
+    }
     // unimplemented
     return -1;
 }
 
 void timer_start(tim_t dev)
 {
+    if (dev != 0) {
+        return;
+    }
     // unimplemented
-    return -1;
 }
 
 void timer_stop(tim_t dev)
 {
+    if (dev != 0) {
+        return;
+    }
     // unimplemented
-    return -1;
 }
 
 void timer_isr(void)

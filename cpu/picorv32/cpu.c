@@ -8,11 +8,13 @@
 
 #include <string.h>
 
-#include "cpu.h"
-#include "board.h"
-
 #define ENABLE_DEBUG 0
 #include "debug.h"
+
+#include "cpu.h"
+#include "board.h"
+#include "stdio_base.h"
+#include "periph/init.h"
 
 extern char _sheap;            /* Heap markers from the ld script */
 extern char _eheap;

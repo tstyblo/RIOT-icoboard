@@ -35,7 +35,8 @@
     The icoSoC console UART does not support interrupts.
     The rx_cb callback will be ignored. Use uart_read() instead.
 */
-int uart_init(uart_t dev, uint32_t baudrate, uart_rx_cb_t rx_cb, void *arg)
+int uart_init(uart_t dev, __attribute__ ((unused)) uint32_t baudrate,
+              __attribute__ ((unused)) uart_rx_cb_t rx_cb, __attribute__ ((unused)) void *arg)
 {
     ICODEBUG("uart.c - uart_init - START")
 
