@@ -11,7 +11,7 @@
 #include "cpu.h"
 #include "board.h"
 
-#define ENABLE_DEBUG 1
+#define ENABLE_DEBUG 0
 #include "debug.h"
 
 extern char _sheap;            /* Heap markers from the ld script */
