@@ -15,6 +15,7 @@
 .global _picorv32_waitirq
 .global _picorv32_maskirq
 .global _picorv32_timer
+.global _rdcycle_read
 .global _asm_test
 
 /* begin: custom PicoRV32 opcodes */
@@ -145,6 +146,14 @@ _picorv32_maskirq:
 _picorv32_timer:
     picorv32_timer_insn(a0, a0)
     ret
+
+_rdcycle_read:
+again:
+  rdcycleh a1
+  rdcycle a0
+  rdcycleh t0
+  bne a1, t0, again
+  ret
 
 .balign 16
 trap_entry:
