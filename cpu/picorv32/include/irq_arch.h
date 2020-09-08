@@ -44,6 +44,7 @@ extern volatile int picorv32_in_isr;
 unsigned int _picorv32_maskirq(unsigned volatile int);
 unsigned int _picorv32_waitirq(void);
 unsigned int _picorv32_timer(unsigned volatile int);
+uint64_t __attribute__ ((noinline)) _rdcycle_read(void);
 
 void handle_trap(unsigned int ra, unsigned int irqs_pending);
 
