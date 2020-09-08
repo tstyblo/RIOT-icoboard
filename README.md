@@ -28,10 +28,11 @@ These features are working already:
 * MTD block device for the FLASH memory - mtd\_spi\_nor
 * SPI for the FLASH memory
 * UART for the console interface (RX callbacks/interrupts are not supported)
+* UART for the serial interface (mod\_rs232)
 * STDIO via UART
-* timer (core clock frequency)
-* GPIO
 * shell
+* timer (core clock frequency)
+* GPIO (mod\_gpio)
 * the build process
 * the standard programming mechanism (FLASH only - using icoprog - but the binaries run fine from both FLASH and SRAM)
 * the following examples have been tested: default, hello-world, filesystem, ...
