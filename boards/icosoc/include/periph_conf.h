@@ -8,7 +8,7 @@
 extern "C" {
 #endif
 
-#define CLOCK_CORECLOCK 20000000U
+#define CLOCK_CORECLOCK 20000000UL
 
 // UART
 #define UART_NUMOF          2

@@ -27,6 +27,21 @@ extern "C" {
 #define IOPORT_SER_BASE_RDLEN   0x20000004
 #define IOPORT_SER_BASE_WRLEN   0x20000008
 
+// xtimer
+#define MODULE_XTIMER_ON_ZTIMER 1
+//#define XTIMER_DEV          (TIMER_DEV(0))
+//#define XTIMER_HZ           CLOCK_CORECLOCK
+//#define XTIMER_WIDTH        (32)
+//#define XTIMER_CHAN         (0)
+
+// ztimer
+#define CONFIG_ZTIMER_USEC_TYPE     ZTIMER_TYPE_PERIPH_TIMER
+#define CONFIG_ZTIMER_USEC_DEV      (TIMER_DEV(0))
+#define CONFIG_ZTIMER_USEC_BASE_FREQ CLOCK_CORECLOCK
+#define CONFIG_ZTIMER_USEC_WIDTH    (32)
+
+// UART - serial (mod_rs232)
+
 typedef struct {
     uint8_t dev;
     uint8_t addr;
