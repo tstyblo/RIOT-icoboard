@@ -14,7 +14,7 @@ extern "C" {
 #define UART_NUMOF          2
 #define SER_DEV_NUMOF       1
 #define CONSOLE_UART_DEV    UART_DEV(0) // do not change this
-#define STDIO_UART_DEV      UART_DEV(1) // you can change this
+#define STDIO_UART_DEV      UART_DEV(0) // set this to 1 to use mod_rs232
 #define UART_RX_DELAY       1000000
 
 // SPI
