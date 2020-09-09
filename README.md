@@ -43,6 +43,7 @@ The following may be implemented in the future:
 * generic SPI interface (mod\_spi)
 * GPIO-driven interrupts (mod\_extirq)
 * PWM (mod\_pwm)
+* soft\_uart
 * programming mechanism - SRAM (using icoprog)
 * support for alternative icoSoC configurations (alternative mod addresses etc.)
 * tests
