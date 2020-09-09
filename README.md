@@ -26,7 +26,7 @@ These features are working already:
 * VFS filesystem layer
 * littlefs2 filesystem - all operations, using the onboard FLASH memory starting at 1 MByte
 * MTD block device for the FLASH memory - mtd\_spi\_nor
-* SPI for the FLASH memory
+* SPI interface for the FLASH memory
 * UART for the console interface (RX callbacks/interrupts are not supported)
 * UART for the serial interface (mod\_rs232)
 * STDIO via UART
@@ -40,7 +40,9 @@ These features are working already:
 
 The following may be implemented in the future:
 
-* PWM
+* generic SPI interface (mod\_spi)
+* GPIO-driven interrupts (mod\_extirq)
+* PWM (mod\_pwm)
 * programming mechanism - SRAM (using icoprog)
 * support for alternative icoSoC configurations (alternative mod addresses etc.)
 * tests
