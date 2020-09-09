@@ -5,6 +5,8 @@
 # directory for more details.
 #
 
+# TODO - do not use this file - not ready
+
 config BOARD
     default "icosoc" if BOARD_ICOSOC
 
@@ -12,5 +14,4 @@ config BOARD_ICOSOC
     bool
     default y
     select CPU_MODEL_PICORV32
-    # select HAS_PERIPH_UART
 

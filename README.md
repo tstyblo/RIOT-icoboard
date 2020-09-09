@@ -33,13 +33,14 @@ These features are working already:
 * shell
 * timer, ztimer (core clock frequency)
 * GPIO (mod\_gpio)
-* the build process
+* build process - Makefile (make flash, make reset, make term)
 * the standard programming mechanism (FLASH only - using icoprog - but the binaries run fine from both FLASH and SRAM)
 * the following examples have been tested: default, hello-world, filesystem, ...
 * the following tests have been tested: thread\_basic, thread\_cooperation, thread\_msg, mutex\_order, periph\_timer, ztimer\_msg, ...
 
 The following may be implemented in the future:
 
+* build process - Kconfig
 * generic SPI interface (mod\_spi)
 * GPIO-driven interrupts (mod\_extirq)
 * PWM (mod\_pwm)
