@@ -29,7 +29,6 @@
 #include "periph_cpu.h"
 #include "periph_conf.h"
 #include "periph/gpio.h"
-#include "periph_gpio_icosoc.h"
 
 int gpio_init(gpio_t pin, gpio_mode_t mode)
 {
@@ -58,7 +57,7 @@ int gpio_init(gpio_t pin, gpio_mode_t mode)
     return 0;
 }
 
-void gpio_write(gpio_t pin, int value)
+inline void gpio_write(gpio_t pin, int value)
 {
     if (value) {
         gpio_set(pin);
@@ -67,3 +66,24 @@ void gpio_write(gpio_t pin, int value)
         gpio_clear(pin);
     }
 }
+
+inline int gpio_read(gpio_t pin)
+{
+    return ((*(volatile uint32_t*)(IOPORT_GPIO_BASE_DATA + IOPORT_GPIO_ADDR * 0x10000)) & (1 << pin)) ? 1 : 0;
+}
+
+inline void gpio_set(gpio_t pin)
+{
+    *((volatile uint32_t*)(IOPORT_GPIO_BASE_DATA + IOPORT_GPIO_ADDR * 0x10000)) |= (1 << pin);
+}
+
+inline void gpio_clear(gpio_t pin)
+{
+    *((volatile uint32_t*)(IOPORT_GPIO_BASE_DATA + IOPORT_GPIO_ADDR * 0x10000)) &= ~(1 << pin);
+}
+
+inline void gpio_toggle(gpio_t pin)
+{
+    *((volatile uint32_t*)(IOPORT_GPIO_BASE_DATA + IOPORT_GPIO_ADDR * 0x10000)) ^= (1 << pin);
+}
+
