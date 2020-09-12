@@ -115,7 +115,6 @@ PSEUDOMODULES += stdin
 PSEUDOMODULES += stdio_cdc_acm
 PSEUDOMODULES += stdio_ethos
 PSEUDOMODULES += stdio_uart_rx
-PSEUDOMODULES += stdio_uart_rx_noint
 PSEUDOMODULES += stm32_eth
 PSEUDOMODULES += stm32_eth_link_up
 PSEUDOMODULES += suit_transport_%

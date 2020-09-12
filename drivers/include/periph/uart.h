@@ -274,19 +274,6 @@ int uart_mode(uart_t uart, uart_data_bits_t data_bits, uart_parity_t parity,
 void uart_write(uart_t uart, const uint8_t *data, size_t len);
 
 /**
- * @brief   Read data from the specified UART device without using interrupts (isrpipe)
- *
- * This function is blocking if there is no data available, but it can return less bytes than requested.
- * It also yields to other threads.
- *
- * @param[in] uart          UART device to use for transmission
- * @param[in] data          data buffer for the input data
- * @param[in] len           maximum number of bytes to read
- *
- */
-size_t uart_read(uart_t dev, int8_t *data, size_t len);
-
-/**
  * @brief   Power on the given UART device
  *
  * @param[in] uart          the UART device to power on
