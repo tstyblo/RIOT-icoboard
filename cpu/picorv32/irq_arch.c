@@ -21,7 +21,7 @@
 #include <assert.h>
 #include <inttypes.h>
 
-#define ENABLE_DEBUG 0
+#define ENABLE_DEBUG 1
 #include "debug.h"
 
 #include "board.h"
@@ -73,6 +73,16 @@ void handle_trap(unsigned int ra, unsigned int irqs_pending)
     if (irqs_pending & IRQ_MASK_BUS_ERROR) {
         irq_serviced++;
         core_panic(PANIC_GENERAL_ERROR, "BUS Error (Unaligned Memory Access)");
+    }
+    if (irqs_pending & IRQ_MASK_UART_CONSOLE) {
+        DEBUG_PUTS("UART CONSOLE IRQ");
+        uart_console_isr();
+        irq_serviced++;
+    }
+    if (irqs_pending & IRQ_MASK_UART_SER0) {
+        DEBUG_PUTS("SER0 CONSOLE IRQ");
+        uart_ser_isr(SER0_UART_DEV);
+        irq_serviced++;
     }
 
     if (irq_serviced == 0) {

@@ -20,8 +20,6 @@
 extern "C" {
 #endif
 
-void icosoc_ser_read(int ser_addr, void *data, int len);
-void icosoc_ser_write(int ser_addr, const void *data, int len);
 int icosoc_ser_read_nb(int ser_addr, void *data, int maxlen);
 int icosoc_ser_write_nb(int ser_addr, const void *data, int maxlen);
 

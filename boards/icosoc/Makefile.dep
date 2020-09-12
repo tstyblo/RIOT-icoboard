@@ -1,4 +1,3 @@
-USEMODULE += stdio_uart_rx_noint
 USEMODULE += posix_headers
 USEMODULE += mtd_spi_nor
 USEMODULE += devfs

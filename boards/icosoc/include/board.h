@@ -16,17 +16,6 @@
 extern "C" {
 #endif
 
-#define IOPORT_CONSOLE  0x30000000
-#define IOPORT_SPI_CTRL 0x20000004
-#define IOPORT_SPI_DATA 0x20000008
-#define IOPORT_GPIO_BASE_DATA 0x20000000
-#define IOPORT_GPIO_BASE_DIR  0x20000004
-#define IOPORT_GPIO_ADDR      2
-
-#define IOPORT_SER_BASE_DATA    0x20000000
-#define IOPORT_SER_BASE_RDLEN   0x20000004
-#define IOPORT_SER_BASE_WRLEN   0x20000008
-
 // xtimer
 #define MODULE_XTIMER_ON_ZTIMER 1
 //#define XTIMER_DEV          (TIMER_DEV(0))
@@ -39,15 +28,6 @@ extern "C" {
 #define CONFIG_ZTIMER_USEC_DEV      (TIMER_DEV(0))
 #define CONFIG_ZTIMER_USEC_BASE_FREQ CLOCK_CORECLOCK
 #define CONFIG_ZTIMER_USEC_WIDTH    (32)
-
-// UART - serial (mod_rs232)
-
-typedef struct {
-    uint8_t dev;
-    uint8_t addr;
-} ser_device_t;
-
-extern const ser_device_t ser_devices[SER_DEV_NUMOF];
 
 #if defined ENABLE_DEBUG && ENABLE_DEBUG
 #define ICODEBUG(msg) \
@@ -63,7 +43,6 @@ extern const ser_device_t ser_devices[SER_DEV_NUMOF];
 #endif
 
 void board_init(void);
-void timer_isr(void);
 
 #ifdef __cplusplus
 }
