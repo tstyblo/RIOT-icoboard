@@ -22,9 +22,9 @@ Then follow the instructions in the icosoc documentation to install the riscv-gn
 
 Add the appropriate directory (eg. /opt/riscv32ic/bin) to your PATH.
 
-Then you can create icosoc.bin by compiling the "examples/riotos" example in the patched icosoc distribution.
+Then you can create icosoc.bin by running "make icosoc.bin" in "examples/riotos" in the patched icosoc distribution.
 
-When the compilation is finished you must program icosoc.bin into the flash memory of your board:
+When that is finished you must program icosoc.bin into the flash memory of your board:
 
 # icoprog -f < icosoc.bin
 
