@@ -27,9 +27,9 @@ These features are working already:
 * littlefs2 filesystem - all operations, using the onboard FLASH memory starting at 1 MByte
 * MTD block device for the FLASH memory - mtd\_spi\_nor
 * SPI interface for the FLASH memory
-* UART for the console interface (RX callbacks/interrupts are not supported)
-* UART for the serial interface (mod\_rs232)
-* STDIO via UART
+* UART for the console interface (RX callbacks/interrupts are supported via our icoSoC patch)
+* UART for the serial interface (mod\_rs232, RX callbacks/interrupts are supported via our icoSoC patch)
+* STDIO via UART (console or serial)
 * shell
 * timer, ztimer (core clock frequency)
 * GPIO (mod\_gpio)
@@ -55,6 +55,8 @@ All the new code is in the "icosoc" branch.
 
 You will have to patch the icosoc.py configuration generator and add a new "progaddr\_irq" option to icosoc.cfg,
 otherwise the interrupt handler and threads won't work.
+
+You will also have to patch mod\_rs232 to add RX interrupt support used by the UART.
 
 You can find more info in the [boards/icosoc/doc.txt](boards/icosoc/doc.txt) file.
 

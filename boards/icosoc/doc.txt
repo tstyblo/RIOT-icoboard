@@ -14,31 +14,17 @@
 
 ### Overview
 
-Only flash memory programming is supported when using the standard build targets.
+First, you will have to get the icosoc code from github and it using the following patch:
 
-First, you will have to patch the icosoc.py file used by icosoc to create the icosoc.v Verilog file. 
-
-The patch adds a new progaddr_irq option that allow us to use our own IRQ vector.
-
-The patch is in boards/icosoc/dist/icosoc-icosoc_py-progaddr_irq.patch.
-
-You should also apply the icosoc-firmware_c-flash_prog_max_size.patch to firmware.c
-in order to prevent code from being truncated at 128 KB when it is loaded from the FLASH memory.
+boards/icosoc/dist/icosoc-riot-icoboard-all.patch
 
 Then follow the instructions in the icosoc documentation to install the riscv-gnu-toolchain.
 
 Add the appropriate directory (eg. /opt/riscv32ic/bin) to your PATH.
 
-Then you can create icosoc.bin by compiling the "hello" example in the icosoc distribution.
+Then you can create icosoc.bin by compiling the "examples/riotos" example in the patched icosoc distribution.
 
-You will have to add the following to icosoc.cfg before starting:
-
---------------------------------------
-# custom interrupt vector address
-progaddr_irq 32'h0001_0080
---------------------------------------
-
-When the compilation is finished you must program icosoc.bin into the flash memory:
+When the compilation is finished you must program icosoc.bin into the flash memory of your board:
 
 # icoprog -f < icosoc.bin
 
@@ -50,6 +36,8 @@ Then you can use the following to compile and load the RIOT OS example apps into
 # make flash
 # make reset
 # make term
+
+Only flash memory programming is supported when using the standard build targets.
 
 You can test it with one of the examples and tests that already work,
 eg. "examples/filesystem" ("ps", "help", "cat /const/hello-world", "format", "mount", "vfs df", 
