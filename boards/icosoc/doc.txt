@@ -14,7 +14,7 @@
 
 ### Overview
 
-First, you will have to get the icosoc code from github and it using the following patch:
+First, you will have to get the icosoc code from github and patch it using the following patch:
 
 boards/icosoc/dist/icosoc-riot-icoboard-all.patch
 
