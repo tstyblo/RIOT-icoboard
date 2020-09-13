@@ -126,27 +126,8 @@ index 0000000..7260eef
 +debug_port pmod4_3 cpu_trap
 +debug_port pmod4_4 mem_valid
 +
-diff --git a/icosoc/examples/riotos/main.c b/icosoc/examples/riotos/main.c
-new file mode 100644
-index 0000000..48410d7
---- /dev/null
-+++ b/icosoc/examples/riotos/main.c
-@@ -0,0 +1,13 @@
-+#include <stdio.h>
-+#include <stdint.h>
-+#include "icosoc.h"
-+
-+int main()
-+{
-+    puts("Hello World - Console UART");
-+
-+    char buffer[100];
-+    char *str = "Hello World - Serial UART\r\n";
-+    icosoc_ser0_write(str, strlen(str));
-+}
-+
 diff --git a/icosoc/icosoc.py b/icosoc/icosoc.py
-index 737fdc4..8faca36 100755
+index 737fdc4..3078ce8 100755
 --- a/icosoc/icosoc.py
 +++ b/icosoc/icosoc.py
 @@ -37,6 +37,7 @@ enable_flashmem = False
@@ -178,16 +159,17 @@ index 737fdc4..8faca36 100755
          if line[0] == "debug_net":
              assert len(line) == 2
              debug_signals[line[1]] = line[1]
-@@ -480,6 +488,8 @@ icosoc_v["30-raspif"].append("""
+@@ -480,6 +488,9 @@ icosoc_v["30-raspif"].append("""
      wire trigger_2;  // unused
      wire trigger_3;  // unused
  
 +    reg recv_ep2_irq = 0;
++    reg recv_ep2_valid_q1;
 +
      icosoc_raspif #(
          .NUM_RECV_EP(4),
          .NUM_SEND_EP(4),
-@@ -571,7 +581,8 @@ icosoc_v["40-cpu"].append("""
+@@ -571,7 +582,8 @@ icosoc_v["40-cpu"].append("""
          .COMPRESSED_ISA(<compisa>),
          .ENABLE_MUL(<muldiv>),
          .ENABLE_DIV(<muldiv>),
@@ -197,7 +179,7 @@ index 737fdc4..8faca36 100755
      ) cpu (
          .clk       (clk      ),
          .resetn    (resetn   ),
-@@ -587,7 +598,8 @@ icosoc_v["40-cpu"].append("""
+@@ -587,7 +599,8 @@ icosoc_v["40-cpu"].append("""
      );
  """
  .replace("<compisa>", ("1" if enable_compressed_isa else "0"))
@@ -207,7 +189,7 @@ index 737fdc4..8faca36 100755
  
  icosoc_v["50-mods"].append("""
      // -------------------------------
-@@ -595,6 +607,8 @@ icosoc_v["50-mods"].append("""
+@@ -595,6 +608,8 @@ icosoc_v["50-mods"].append("""
  """)
  
  irq_terms = list()
@@ -216,7 +198,7 @@ index 737fdc4..8faca36 100755
  txt = icosoc_v["50-mods"]
  for m in mods.values():
      if m["addr"] is not None:
-@@ -832,6 +846,11 @@ icosoc_v["72-bus"].append("""
+@@ -832,6 +847,11 @@ icosoc_v["72-bus"].append("""
          if (send_ep2_ready)
              send_ep2_valid <= 0;
  
@@ -228,7 +210,7 @@ index 737fdc4..8faca36 100755
          recv_ep2_ready <= 0;
  
          if (!resetn) begin
-@@ -845,6 +864,8 @@ icosoc_v["72-bus"].append("""
+@@ -845,6 +865,8 @@ icosoc_v["72-bus"].append("""
  
              send_ep2_valid <= 0;
              spiflash_state <= 0;
